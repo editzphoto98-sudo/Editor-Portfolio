@@ -78,7 +78,9 @@ export default function ProjectDetails({ project }: ProjectDetailsProps) {
                                     <Image
                                         src={
                                             project.cover_image
-                                                ? `https://img.youtube.com/vi/${project.cover_image}/maxresdefault.jpg`
+                                                ? (project.cover_image.startsWith("/") || project.cover_image.startsWith("http")
+                                                    ? project.cover_image
+                                                    : `https://img.youtube.com/vi/${project.cover_image}/maxresdefault.jpg`)
                                                 : "/placeholder.svg"
                                         }
                                         alt={project.video_title}

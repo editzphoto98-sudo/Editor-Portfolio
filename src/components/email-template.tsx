@@ -23,7 +23,7 @@ export const EmailTemplate = ({
   message,
   projectType = "Not specified",
   timeline = "Not specified",
-  yourName = "Niloy Bhowmick",
+  yourName = "Yogita Singh",
 }: EmailTemplateProps) => (
   <Html>
     <Head />
@@ -83,7 +83,7 @@ export const EmailTemplate = ({
             system.
           </Text>
           <Text style={footerLink}>
-            <a href="https://www.itsniloy.me" style={footerLinkStyle}>
+            <a href="https://yogitasingh.vercel.app" style={footerLinkStyle}>
               Visit Your Portfolio
             </a>
           </Text>

@@ -1,10 +1,18 @@
 "use client";
 
 import { m } from "framer-motion";
-import { ArrowDown } from "lucide-react";
+import { ArrowDown, Film } from "lucide-react";
 import MagneticButton from "./magnetic-button";
 
 import { useLenis } from "lenis/react";
+
+const floatingBadges = [
+  { name: "Pr", color: "border-purple-500/30 text-purple-400 bg-purple-500/5", glow: "rgba(168,85,247,0.15)", top: "15%", left: "10%", delay: 0 },
+  { name: "Ae", color: "border-blue-500/30 text-blue-400 bg-blue-500/5", glow: "rgba(59,130,246,0.15)", top: "25%", right: "8%", delay: 1.5 },
+  { name: "Ps", color: "border-cyan-500/30 text-cyan-400 bg-cyan-500/5", glow: "rgba(6,182,212,0.15)", bottom: "35%", left: "7%", delay: 0.8 },
+  { name: "Cc", color: "border-teal-500/30 text-teal-400 bg-teal-500/5", glow: "rgba(20,184,166,0.15)", bottom: "40%", right: "12%", delay: 2.2 },
+  { name: "Cv", color: "border-pink-500/30 text-pink-400 bg-pink-500/5", glow: "rgba(236,72,153,0.15)", top: "10%", right: "30%", delay: 1 },
+];
 
 export default function Hero() {
     const lenis = useLenis();
@@ -21,7 +29,7 @@ export default function Hero() {
     };
 
     return (
-        <section className="relative h-screen min-h-[800px] flex items-center justify-center overflow-hidden">
+        <section className="relative min-h-screen py-24 flex flex-col items-center justify-center overflow-hidden">
             {/* Background Ambience - Deepened and refined */}
             <div className="absolute inset-0 z-0 overflow-hidden pointer-events-none">
                 <div className="absolute top-[40%] left-1/2 -translate-x-1/2 -translate-y-1/2 w-[1000px] h-[800px] bg-blue-900/15 rounded-[100%] blur-[120px] animate-pulse-slow" />
@@ -29,7 +37,36 @@ export default function Hero() {
                 <div className="absolute top-[20%] left-[-10%] w-[600px] h-[600px] bg-indigo-900/10 rounded-full blur-[120px]" />
             </div>
 
-            <div className="relative z-10 text-center px-4 md:px-8 max-w-6xl mx-auto w-full">
+            {/* Floating Software Badges */}
+            {floatingBadges.map((badge, idx) => (
+                <m.div
+                    key={badge.name}
+                    initial={{ opacity: 0, y: 50 }}
+                    animate={{ 
+                        opacity: 1, 
+                        y: [0, -15, 0],
+                        x: [0, 10, 0]
+                    }}
+                    transition={{ 
+                        opacity: { duration: 1, delay: badge.delay },
+                        y: { repeat: Infinity, duration: 6 + idx, ease: "easeInOut" },
+                        x: { repeat: Infinity, duration: 8 + idx, ease: "easeInOut" }
+                    }}
+                    style={{
+                        position: "absolute",
+                        top: badge.top,
+                        left: badge.left,
+                        right: badge.right,
+                        bottom: badge.bottom,
+                        boxShadow: `0 0 30px ${badge.glow}`
+                    }}
+                    className={`hidden lg:flex w-14 h-14 rounded-2xl border backdrop-blur-xl items-center justify-center font-bold text-lg select-none pointer-events-none z-10 transition-all hover:scale-110 ${badge.color}`}
+                >
+                    {badge.name}
+                </m.div>
+            ))}
+
+            <div className="relative z-10 text-center px-4 md:px-8 max-w-6xl mx-auto w-full flex flex-col items-center pt-16 sm:pt-24">
                 {/* Badge */}
                 <m.div
                     initial={{ opacity: 0, y: 20 }}
@@ -43,35 +80,40 @@ export default function Hero() {
                     </div>
                 </m.div>
 
-                {/* Main Title - Split for animation with tighter premium tracking */}
-                <h1 className="text-6xl md:text-8xl lg:text-9xl font-bold tracking-tighter text-white mb-8 leading-[0.9] w-full flex flex-col items-center">
+                {/* Main Title - Split for Creative Typography */}
+                <h1 className="font-extrabold text-white mb-8 leading-[0.85] w-full flex flex-col items-center select-none">
                     <m.span
-                        initial={{ opacity: 0, y: 60, filter: "blur(10px)" }}
+                        initial={{ opacity: 0, y: 30, filter: "blur(10px)" }}
                         animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
                         transition={{ duration: 1, ease: [0.25, 1, 0.5, 1], delay: 0.1 }}
-                        className="block w-full bg-gradient-to-b from-white via-white/90 to-white/40 bg-clip-text text-transparent drop-shadow-sm pb-2"
+                        className="block text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-[5rem] tracking-[0.25em] text-white font-black uppercase mb-4 drop-shadow-[0_0_20px_rgba(255,255,255,0.15)]"
                     >
-                        CINEMATIC
+                        VISUAL
                     </m.span>
                     <m.span
                         initial={{ opacity: 0, y: 40, filter: "blur(10px)" }}
                         animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
-                        transition={{ duration: 1, ease: [0.25, 1, 0.5, 1], delay: 0.3 }}
-                        className="block w-full text-transparent bg-clip-text bg-gradient-to-r from-blue-400 via-indigo-400 to-purple-400 pb-4 filter drop-shadow-[0_0_30px_rgba(59,130,246,0.25)]"
+                        transition={{ duration: 1, ease: [0.25, 1, 0.5, 1], delay: 0.2 }}
+                        className="block text-6xl sm:text-8xl md:text-[6.5rem] lg:text-[8rem] xl:text-[9.5rem] bg-gradient-to-r from-white via-blue-100 to-blue-400 bg-clip-text text-transparent filter drop-shadow-[0_0_30px_rgba(59,130,246,0.25)] tracking-tighter"
                     >
-                        EDITOR
+                        STORYTELLER
                     </m.span>
                 </h1>
 
                 {/* Subtitle */}
-                <m.p
+                <m.div
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.8, delay: 0.6, ease: [0.25, 1, 0.5, 1] }}
-                    className="text-lg md:text-xl text-gray-400 max-w-2xl mx-auto font-light leading-relaxed mb-12 sm:mb-16 md:px-0"
+                    className="max-w-2xl mx-auto mb-16 sm:mb-24"
                 >
-                    Turning raw footage into visual stories — with style, precision, and a touch of <span className="text-white font-medium drop-shadow-[0_0_15px_rgba(255,255,255,0.4)]">cinematic magic</span>.
-                </m.p>
+                    <p className="text-blue-400 font-semibold tracking-[0.15em] uppercase text-xs sm:text-sm mb-3.5 drop-shadow-[0_0_15px_rgba(59,130,246,0.2)]">
+                        Professional Video Editor & Designer
+                    </p>
+                    <p className="text-lg md:text-xl text-gray-400 font-light leading-relaxed md:px-0">
+                        Turning raw footage into visual stories — with style, precision, and a touch of <span className="text-white font-medium drop-shadow-[0_0_15px_rgba(255,255,255,0.4)]">cinematic magic</span>.
+                    </p>
+                </m.div>
 
                 {/* Buttons */}
                 <m.div

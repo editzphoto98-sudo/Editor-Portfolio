@@ -23,7 +23,7 @@ export async function POST(req: NextRequest) {
       body: JSON.stringify({
         payload: {
           website: process.env.NEXT_PUBLIC_UMAMI_WEBSITE_ID,
-          hostname: "itsniloy.vercel.app",
+          hostname: "yogitasingh.vercel.app",
           language: req.headers.get("accept-language")?.split(",")[0] || "en",
           screen: "1920x1080",
           url: body.p || "/",

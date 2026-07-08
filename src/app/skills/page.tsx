@@ -19,6 +19,7 @@ import {
   Star,
 } from "lucide-react";
 import CTASection from "@/components/CTASection";
+import TimelineWidget from "@/components/timeline-widget";
 import {
   videoEditingSkills,
   specializations,
@@ -100,6 +101,19 @@ export default function SkillsPage() {
               </m.div>
             ))}
           </div>
+        </m.div>
+
+        {/* Animated Editing Workspace Mock */}
+        <m.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5, delay: 0.3 }}
+          className="mb-24 hidden md:block"
+        >
+          <h3 className="text-xl font-bold mb-6 text-white text-center">
+            My Editing Timeline Suite
+          </h3>
+          <TimelineWidget />
         </m.div>
 
         {/* Specializations */}

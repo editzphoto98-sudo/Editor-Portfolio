@@ -9,6 +9,7 @@ import GlassmorphismCard from "@/components/glassmorphism-card";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { VideoProject } from "@/types/videos";
+import { getYouTubeEmbedUrl } from "@/lib/helper";
 
 interface ProjectCardProps {
     project: VideoProject;
@@ -63,7 +64,7 @@ export default function ProjectCard({ project }: ProjectCardProps) {
                                     className="absolute inset-0 z-20"
                                 >
                                     <iframe
-                                        src={`https://www.youtube.com/embed/${project.cover_image}?autoplay=1&mute=1&controls=1&rel=0&modestbranding=1`}
+                                        src={`${getYouTubeEmbedUrl(project.video_link)}?autoplay=1&mute=1&controls=1`}
                                         title={project.video_title}
                                         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                                         allowFullScreen
@@ -90,7 +91,11 @@ export default function ProjectCard({ project }: ProjectCardProps) {
                                         className="w-full h-full"
                                     >
                                         <Image
-                                            src={`https://img.youtube.com/vi/${project.cover_image}/maxresdefault.jpg`}
+                                            src={
+                                                project.cover_image.startsWith("/") || project.cover_image.startsWith("http")
+                                                    ? project.cover_image
+                                                    : `https://img.youtube.com/vi/${project.cover_image}/maxresdefault.jpg`
+                                            }
                                             alt={project.video_title}
                                             fill
                                             className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"

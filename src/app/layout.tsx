@@ -17,33 +17,35 @@ const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
   title: {
-    default: "Niloy Bhowmick – Video Editor & Motion Graphics Designer",
-    template: "%s | Niloy Bhowmick",
+    default: "Yogita Singh – Video Editor & Designer",
+    template: "%s | Yogita Singh",
   },
   description:
-    "Turning raw footage into visual stories — with style, precision, and a touch of cinematic magic. Niloy Bhowmick specializes in DaVinci Resolve, Premiere Pro, and After Effects — delivering cinematic edits, motion graphics, and polished storytelling.",
+    "Turning raw footage into visual stories — with style, precision, and a touch of cinematic magic. Yogita Singh specializes in Premiere Pro, After Effects, and Photoshop — delivering cinematic edits, motion graphics, and polished storytelling.",
   keywords: [
-    "Niloy Bhowmick",
+    "Yogita Singh",
     "Video Editor",
     "Motion Graphics Designer",
-    "DaVinci Resolve",
     "Premiere Pro",
     "After Effects",
+    "Photoshop",
+    "CapCut",
+    "Canva",
     "Color Grading",
     "YouTube Video Editing",
     "Course Video Editing",
     "Logo Animation",
     "Visual Storytelling",
     "Freelance Video Editor",
-    "Bangladesh Video Editor",
+    "India Video Editor",
     "Cinematic Editing",
     "Content Creator",
     "Lower Thirds",
     "Audio Sync",
   ],
-  authors: [{ name: "Niloy Bhowmick", url: "https://www.itsniloy.me" }],
-  creator: "Niloy Bhowmick",
-  publisher: "Niloy Bhowmick",
+  authors: [{ name: "Yogita Singh", url: "mailto:yukta062@gmail.com" }],
+  creator: "Yogita Singh",
+  publisher: "Yogita Singh",
   robots: {
     index: true,
     follow: true,
@@ -58,33 +60,33 @@ export const metadata: Metadata = {
   openGraph: {
     type: "website",
     locale: "en_US",
-    url: "https://www.itsniloy.me",
-    title: "Niloy Bhowmick – Video Editor & Motion Graphics Designer",
+    url: "https://yogitasingh.vercel.app",
+    title: "Yogita Singh – Video Editor & Designer",
     description:
-      "Passionate Video Editor and Motion Graphics Designer delivering clean, cinematic edits and dynamic visual storytelling using DaVinci Resolve, Premiere Pro, and After Effects.",
-    siteName: "Niloy Bhowmick Portfolio",
+      "Passionate Video Editor and Designer delivering clean, cinematic edits and dynamic visual storytelling using Premiere Pro, After Effects, and Photoshop.",
+    siteName: "Yogita Singh Portfolio",
     images: [
       {
-        url: "/niloybhowmick.png",
+        url: "/yogitasingh.jpg",
         width: 1200,
         height: 630,
-        alt: "Niloy Bhowmick - Video Editor",
+        alt: "Yogita Singh - Video Editor",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Niloy Bhowmick – Video Editor & Motion Graphics Designer",
+    title: "Yogita Singh – Video Editor & Designer",
     description:
       "Crafting cinematic edits, motion graphics, and powerful stories. Let's make your content stand out.",
-    creator: "@niloy_bhowmick", // update if you have a real Twitter handle
-    images: ["/niloybhowmick.png"],
+    creator: "@yogita_singh",
+    images: ["/yogitasingh.jpg"],
   },
   verification: {
     google: "your-google-verification-code",
   },
   alternates: {
-    canonical: "https://www.itsniloy.me",
+    canonical: "https://yogitasingh.vercel.app",
   },
   category: "Video Editing",
 };
@@ -106,32 +108,28 @@ export default function RootLayout({
             __html: JSON.stringify({
               "@context": "https://schema.org",
               "@type": "Person",
-              name: "Niloy Bhowmick",
-              url: "https://www.itsniloy.me",
-              image: "/niloybhowmick.png",
+              name: "Yogita Singh",
+              url: "https://yogitasingh.vercel.app",
+              image: "/yogitasingh.jpg",
               sameAs: [
-                "https://www.itsniloy.me",
-                "https://linkedin.com/in/niloybhowmick", // update if available
-                "https://youtube.com/@niloybhowmick", // update if available
-                "https://twitter.com/niloy_bhowmick", // update if available
+                "https://linkedin.com/in/yogitasingh",
+                "https://youtube.com/@yogitasingh",
               ],
-              jobTitle: "Video Editor & Motion Graphics Designer",
+              jobTitle: "Video Editor & Designer",
               knowsAbout: [
                 "Video Editing",
                 "Motion Graphics",
-                "DaVinci Resolve",
                 "Adobe Premiere Pro",
                 "Adobe After Effects",
+                "Adobe Photoshop",
+                "CapCut",
+                "Canva",
                 "Color Grading",
                 "Audio Syncing",
               ],
               worksFor: {
                 "@type": "Organization",
                 name: "Freelance",
-              },
-              alumniOf: {
-                "@type": "Organization",
-                name: "Green University of Bangladesh",
               },
             }),
           }}

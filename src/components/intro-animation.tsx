@@ -65,7 +65,7 @@ export default function IntroAnimation() {
               className="text-4xl font-bold"
             >
               <span className="bg-gradient-to-r from-purple-400 to-pink-600 bg-clip-text text-transparent">
-                itsNiloy
+                Yogita Singh
               </span>
             </m.h1>
             <m.p

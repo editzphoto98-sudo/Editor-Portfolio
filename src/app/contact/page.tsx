@@ -96,10 +96,10 @@ export default function ContactPage() {
                   <div>
                     <p className="text-gray-400 text-sm">Email</p>
                     <a
-                      href="mailto:contact.niloybhowmick@gmail.com"
+                      href="mailto:yukta062@gmail.com"
                       className="text-white hover:text-blue-400 transition-colors"
                     >
-                      contact.niloybhowmick@gmail.com
+                      yukta062@gmail.com
                     </a>
                   </div>
                 </div>
@@ -111,12 +111,12 @@ export default function ContactPage() {
                   <div>
                     <p className="text-gray-400 text-sm">WhatsApp</p>
                     <a
-                      href="https://wa.me/+8801580385556"
+                      href="https://wa.me/917067995677"
                       target="_blank"
                       rel="noopener noreferrer"
                       className="text-white hover:text-green-400 transition-colors"
                     >
-                      +88 (015) 803-85556
+                      +91 7067995677
                     </a>
                   </div>
                 </div>
@@ -127,7 +127,7 @@ export default function ContactPage() {
                   </div>
                   <div>
                     <p className="text-gray-400 text-sm">Location</p>
-                    <p className="text-white">Available Worldwide (Remote)</p>
+                    <p className="text-white">Durg, Chhattisgarh, India</p>
                   </div>
                 </div>
 
@@ -137,7 +137,7 @@ export default function ContactPage() {
                   </div>
                   <div>
                     <p className="text-gray-400 text-sm">Availability</p>
-                    <p className="text-white">Flexible with time zones</p>
+                    <p className="text-white">6 AM to 10 PM (IST)</p>
                   </div>
                 </div>
               </div>
@@ -310,7 +310,7 @@ export default function ContactPage() {
                 <p className="text-gray-400 text-sm text-center">
                   Prefer to chat directly? Reach out on{" "}
                   <a
-                    href="https://wa.me/+8801580385556"
+                    href="https://wa.me/917067995677"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="text-green-400 hover:text-green-300"

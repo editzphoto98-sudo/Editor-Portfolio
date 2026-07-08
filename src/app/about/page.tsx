@@ -5,12 +5,12 @@ import Image from "next/image";
 import { BentoGrid, BentoGridItem } from "@/components/ui/bento-grid";
 import Marquee from "@/components/ui/marquee";
 import CTASection from "@/components/CTASection";
+import GlassmorphismCard from "@/components/glassmorphism-card";
 import {
   Facebook,
   Github,
   Instagram,
   Linkedin,
-  Youtube,
   MapPin,
   Cpu,
   Award,
@@ -32,10 +32,10 @@ export default function AboutPage() {
           className="text-center mb-8"
         >
           <h1 className="text-4xl md:text-6xl font-bold mt-0 md:mt-20 mb-3 text-white tracking-tight">
-            The Man Behind the <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-500 to-purple-500">Magic</span>
+            The Creative Mind Behind the <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-500 to-purple-500">Magic</span>
           </h1>
           <p className="text-gray-400 text-lg max-w-2xl mx-auto">
-            Visual Storyteller. Motion Graphics Artist. Problem Solver.
+            Visual Storyteller. Professional Video Editor. Creative Designer.
           </p>
         </m.div>
 
@@ -53,8 +53,8 @@ export default function AboutPage() {
               header={
                 <div className="relative w-full h-full min-h-[28rem] md:min-h-[16rem] rounded-xl overflow-hidden group-hover/bento:scale-[1.02] transition-transform duration-500">
                   <Image
-                    src="/niloybhowmick.png"
-                    alt="Niloy"
+                    src="/yogitasingh.jpg"
+                    alt="Yogita Singh"
                     fill
                     className="object-cover object-top grayscale-[0] hover:grayscale-0 transition-all duration-500"
                   />
@@ -68,12 +68,12 @@ export default function AboutPage() {
                       transition={{ delay: 0.2 }}
                       className="text-4xl md:text-6xl font-black text-white leading-tight tracking-tighter"
                     >
-                      NILOY<br />
-                      <span className="text-blue-500">BHOWMICK</span>
+                      YOGITA<br />
+                      <span className="text-blue-500">SINGH</span>
                     </m.div>
                     <div className="h-1 w-16 md:w-20 bg-purple-500 mt-4 rounded-full" />
                     <p className="text-gray-300 mt-4 text-xs md:text-sm font-medium tracking-wide uppercase">
-                      Professional Video Editor & Motion Designer
+                      Professional Video Editor & Designer
                     </p>
                   </div>
                 </div>
@@ -96,7 +96,7 @@ export default function AboutPage() {
               header={
                 <div className="flex flex-1 w-full h-full min-h-[6rem] rounded-xl bg-gradient-to-br from-black to-neutral-900 border border-white/10 flex flex-col items-center justify-center relative overflow-hidden group-hover:border-emerald-500/30 transition-colors py-8 md:py-0">
                   <div className="absolute inset-0 bg-emerald-500/5 blur-3xl rounded-full" />
-                  <span className="text-6xl md:text-8xl font-black text-transparent bg-clip-text bg-gradient-to-b from-emerald-400 to-emerald-900 z-10">5+</span>
+                  <span className="text-6xl md:text-8xl font-black text-transparent bg-clip-text bg-gradient-to-b from-emerald-400 to-emerald-900 z-10">4+</span>
                   <div className="text-emerald-500/50 text-xs font-mono uppercase tracking-[0.2em] z-10 mt-2">Years Active</div>
                 </div>
               }
@@ -171,10 +171,9 @@ export default function AboutPage() {
               title="Connect"
               description=""
               header={
-                <div className="flex flex-1 h-full w-full items-center justify-between px-6 bg-gradient-to-r from-neutral-900 to-neutral-800 rounded-xl border border-white/5 py-4 md:py-0 min-h-[5rem]">
-                  <a href="https://linkedin.com/in/niloy-bhowmick" target="_blank" className="p-3 bg-white/5 rounded-full hover:bg-[#0077b5] hover:scale-110 transition-all duration-300 text-white"><Linkedin size={20} /></a>
-                  <a href="https://instagram.com/its.niloybhowmick" target="_blank" className="p-3 bg-white/5 rounded-full hover:bg-pink-600 hover:scale-110 transition-all duration-300 text-white"><Instagram size={20} /></a>
-                  <a href="https://youtube.com/@itsniloybhowmick" target="_blank" className="p-3 bg-white/5 rounded-full hover:bg-red-600 hover:scale-110 transition-all duration-300 text-white"><Youtube size={20} /></a>
+                <div className="flex flex-1 h-full w-full items-center justify-center gap-8 px-6 bg-gradient-to-r from-neutral-900 to-neutral-800 rounded-xl border border-white/5 py-4 md:py-0 min-h-[5rem]">
+                  <a href="#" target="_blank" className="p-3 bg-white/5 rounded-full hover:bg-[#0077b5] hover:scale-110 transition-all duration-300 text-white"><Linkedin size={20} /></a>
+                  <a href="#" target="_blank" className="p-3 bg-white/5 rounded-full hover:bg-pink-600 hover:scale-110 transition-all duration-300 text-white"><Instagram size={20} /></a>
                 </div>
               }
               className="h-full"
@@ -183,6 +182,55 @@ export default function AboutPage() {
           </m.div>
 
         </BentoGrid>
+
+        {/* Professional Experience Section */}
+        <m.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5 }}
+          className="max-w-4xl mx-auto mb-24 px-4"
+        >
+          <div className="text-center mb-12">
+            <h2 className="text-3xl md:text-4xl font-bold text-white mb-2">Professional Experience</h2>
+            <div className="h-1 w-20 bg-blue-500 mx-auto rounded-full mb-4" />
+            <p className="text-gray-400 text-sm max-w-lg mx-auto">
+              A brief overview of my professional contributions and milestones.
+            </p>
+          </div>
+
+          <GlassmorphismCard className="p-8 border border-white/5 relative overflow-hidden group">
+            <div className="absolute top-0 left-0 w-1 h-full bg-gradient-to-b from-blue-500 to-purple-500" />
+            
+            <div className="flex flex-col md:flex-row md:items-center justify-between mb-6 gap-2">
+              <div>
+                <h3 className="text-2xl font-bold text-white group-hover:text-blue-400 transition-colors">
+                  Freelance Video Editor & Visual Storyteller
+                </h3>
+                <p className="text-blue-300/80 text-sm font-medium tracking-wide mt-1">
+                  Self-Employed / Remote
+                </p>
+              </div>
+              <span className="inline-block px-3 py-1 bg-white/5 border border-white/10 rounded-full text-xs font-semibold text-gray-300 self-start md:self-center">
+                2022 - Present
+              </span>
+            </div>
+
+            <ul className="space-y-4 text-gray-300 font-light text-sm md:text-base leading-relaxed pl-5 list-disc marker:text-blue-400">
+              <li>
+                Managed the end-to-end post-production workflow for high-traffic digital platforms.
+              </li>
+              <li>
+                Enhanced viewer retention by <span className="text-white font-medium">40%+</span> through strategic pacing, sound design, and engaging motion graphics.
+              </li>
+              <li>
+                Collaborated with creative directors to deliver polished, brand-aligned video assets under tight deadlines.
+              </li>
+              <li>
+                Color graded and mixed audio to ensure broadcast-quality production standards.
+              </li>
+            </ul>
+          </GlassmorphismCard>
+        </m.div>
 
         {/* Clients Section */}
         <m.div

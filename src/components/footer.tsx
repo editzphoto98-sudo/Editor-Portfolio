@@ -1,13 +1,12 @@
 "use client";
 
-import Link from "next/link";
+
 import {
   Linkedin,
-  Twitter,
-  Youtube,
   Mail,
   Heart,
   Instagram,
+  MessageCircle,
 } from "lucide-react";
 
 export default function Footer() {
@@ -15,28 +14,23 @@ export default function Footer() {
 
   const socialLinks = [
     {
-      name: "YouTube",
-      href: "https://www.youtube.com/@itsniloybhowmick",
-      icon: Youtube,
-    },
-    {
       name: "Instagram",
-      href: "https://instagram.com/its.niloybhowmick",
+      href: "#",
       icon: Instagram,
     },
     {
       name: "LinkedIn",
-      href: "https://www.linkedin.com/in/niloy-bhowmick",
+      href: "#",
       icon: Linkedin,
     },
     {
-      name: "Twitter",
-      href: "#",
-      icon: Twitter,
+      name: "WhatsApp",
+      href: "https://wa.me/917067995677?text=Hi%20Yogita,%20I'd%20like%20to%20discuss%20a%20video%20project.",
+      icon: MessageCircle,
     },
     {
       name: "Email",
-      href: "mailto:contact.niloybhowmick@gmail.com",
+      href: "mailto:yukta062@gmail.com",
       icon: Mail,
     },
   ];
@@ -44,50 +38,17 @@ export default function Footer() {
   return (
     <footer className="glass-panel border-t border-white/5 mt-20 backdrop-blur-3xl">
       <div className="max-w-6xl mx-auto px-6 py-16">
-        <div className="grid md:grid-cols-3 gap-12">
+        <div className="grid md:grid-cols-2 gap-12 justify-between">
           {/* Brand */}
           <div className="space-y-6">
             <h3 className="text-2xl font-bold tracking-tight bg-gradient-to-r from-blue-400 to-purple-600 bg-clip-text text-transparent">
-              Niloy Bhowmick
+              Yogita Singh
             </h3>
             <p className="text-gray-400 text-sm leading-relaxed max-w-xs">
-              Video Editor and Motion Graphics Designer passionate about
+              Video Editor and Designer passionate about
               creating visual stories with style, precision, and cinematic
               magic.
             </p>
-          </div>
-
-          {/* Quick Links */}
-          <div className="space-y-6">
-            <h4 className="font-semibold text-white tracking-wide uppercase text-xs opacity-70">
-              Quick Links
-            </h4>
-            <div className="grid grid-cols-2 gap-4 text-sm font-medium">
-              <Link
-                href="/"
-                className="text-gray-400 hover:text-blue-400 transition-colors"
-              >
-                Home
-              </Link>
-              <Link
-                href="/about"
-                className="text-gray-400 hover:text-blue-400 transition-colors"
-              >
-                About
-              </Link>
-              <Link
-                href="/skills"
-                className="text-gray-400 hover:text-blue-400 transition-colors"
-              >
-                Skills
-              </Link>
-              <Link
-                href="/contact"
-                className="text-gray-400 hover:text-blue-400 transition-colors"
-              >
-                Contact
-              </Link>
-            </div>
           </div>
 
           {/* Social Links */}
