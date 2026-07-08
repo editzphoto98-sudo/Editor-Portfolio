@@ -7,11 +7,11 @@ import MagneticButton from "./magnetic-button";
 import { useLenis } from "lenis/react";
 
 const floatingBadges = [
-  { name: "Pr", color: "border-purple-500/30 text-purple-400 bg-purple-500/5", glow: "rgba(168,85,247,0.15)", top: "14%", left: "4%", delay: 0 },
-  { name: "Ae", color: "border-blue-500/30 text-blue-400 bg-blue-500/5", glow: "rgba(59,130,246,0.15)", top: "25%", right: "4%", delay: 1.5 },
-  { name: "Ps", color: "border-cyan-500/30 text-cyan-400 bg-cyan-500/5", glow: "rgba(6,182,212,0.15)", bottom: "32%", left: "3%", delay: 0.8 },
-  { name: "Cc", color: "border-teal-500/30 text-teal-400 bg-teal-500/5", glow: "rgba(20,184,166,0.15)", bottom: "38%", right: "4%", delay: 2.2 },
-  { name: "Cv", color: "border-pink-500/30 text-pink-400 bg-pink-500/5", glow: "rgba(236,72,153,0.15)", top: "8%", right: "25%", delay: 1, hideMobile: true },
+  { name: "Pr", color: "border-purple-500/30 text-purple-400 bg-purple-500/5", glow: "rgba(168,85,247,0.15)", top: "14%", left: "9%", delay: 0 },
+  { name: "Ae", color: "border-blue-500/30 text-blue-400 bg-blue-500/5", glow: "rgba(59,130,246,0.15)", top: "25%", right: "9%", delay: 1.5 },
+  { name: "Ps", color: "border-cyan-500/30 text-cyan-400 bg-cyan-500/5", glow: "rgba(6,182,212,0.15)", bottom: "32%", left: "8%", delay: 0.8 },
+  { name: "Cc", color: "border-teal-500/30 text-teal-400 bg-teal-500/5", glow: "rgba(20,184,166,0.15)", bottom: "38%", right: "9%", delay: 2.2 },
+  { name: "Cv", color: "border-pink-500/30 text-pink-400 bg-pink-500/5", glow: "rgba(236,72,153,0.15)", top: "8%", right: "28%", delay: 1, hideMobile: true },
 ];
 
 export default function Hero() {
@@ -44,13 +44,15 @@ export default function Hero() {
                     initial={{ opacity: 0, y: 50 }}
                     animate={{ 
                         opacity: 1, 
-                        y: idx % 2 === 0 ? [-10, 10, -10] : [10, -10, 10],
-                        x: idx % 2 === 0 ? [-20, 20, -20] : [20, -20, 20]
+                        y: idx % 2 === 0 ? [-25, 25, -25] : [25, -25, 25],
+                        x: idx % 2 === 0 ? [-45, 45, -45] : [45, -45, 45],
+                        rotate: idx % 2 === 0 ? [-12, 12, -12] : [12, -12, 12]
                     }}
                     transition={{ 
                         opacity: { duration: 1, delay: badge.delay },
-                        y: { repeat: Infinity, duration: 5 + idx * 1.5, ease: "easeInOut" },
-                        x: { repeat: Infinity, duration: 7 + idx * 1.5, ease: "easeInOut" }
+                        y: { repeat: Infinity, duration: 4 + idx * 0.8, ease: "easeInOut" },
+                        x: { repeat: Infinity, duration: 5 + idx * 0.8, ease: "easeInOut" },
+                        rotate: { repeat: Infinity, duration: 6 + idx * 1.2, ease: "easeInOut" }
                     }}
                     style={{
                         position: "absolute",
@@ -81,12 +83,12 @@ export default function Hero() {
                 </m.div>
 
                 {/* Main Title - Split for Creative Typography */}
-                <h1 className="font-extrabold text-white mb-8 leading-[0.85] w-full flex flex-col items-center select-none">
+                <h1 className="font-extrabold text-neutral-950 dark:text-white mb-8 leading-[0.85] w-full flex flex-col items-center select-none">
                     <m.span
                         initial={{ opacity: 0, y: 30, filter: "blur(10px)" }}
                         animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
                         transition={{ duration: 1, ease: [0.25, 1, 0.5, 1], delay: 0.1 }}
-                        className="block text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-[5rem] tracking-[0.25em] text-white font-black uppercase mb-4 drop-shadow-[0_0_20px_rgba(255,255,255,0.15)]"
+                        className="block text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-[5rem] tracking-[0.25em] text-neutral-950 dark:text-white font-black uppercase mb-4 drop-shadow-[0_0_20px_rgba(0,0,0,0.05)] dark:drop-shadow-[0_0_20px_rgba(255,255,255,0.15)]"
                     >
                         VISUAL
                     </m.span>
@@ -94,7 +96,7 @@ export default function Hero() {
                         initial={{ opacity: 0, y: 40, filter: "blur(10px)" }}
                         animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
                         transition={{ duration: 1, ease: [0.25, 1, 0.5, 1], delay: 0.2 }}
-                        className="block text-6xl sm:text-8xl md:text-[6.5rem] lg:text-[8rem] xl:text-[9.5rem] bg-gradient-to-r from-white via-blue-100 to-blue-400 bg-clip-text text-transparent filter drop-shadow-[0_0_30px_rgba(59,130,246,0.25)] tracking-tighter"
+                        className="block text-6xl sm:text-8xl md:text-[6.5rem] lg:text-[8rem] xl:text-[9.5rem] bg-gradient-to-r from-neutral-950 via-blue-900 to-blue-600 dark:from-white dark:via-blue-100 dark:to-blue-400 bg-clip-text text-transparent filter drop-shadow-[0_0_30px_rgba(59,130,246,0.12)] dark:drop-shadow-[0_0_30px_rgba(59,130,246,0.25)] tracking-tighter"
                     >
                         STORYTELLER
                     </m.span>
@@ -107,11 +109,11 @@ export default function Hero() {
                     transition={{ duration: 0.8, delay: 0.6, ease: [0.25, 1, 0.5, 1] }}
                     className="max-w-2xl mx-auto mb-16 sm:mb-24"
                 >
-                    <p className="text-blue-400 font-semibold tracking-[0.15em] uppercase text-xs sm:text-sm mb-3.5 drop-shadow-[0_0_15px_rgba(59,130,246,0.2)]">
+                    <p className="text-blue-600 dark:text-blue-400 font-semibold tracking-[0.15em] uppercase text-xs sm:text-sm mb-3.5 drop-shadow-[0_0_15px_rgba(59,130,246,0.1)] dark:drop-shadow-[0_0_15px_rgba(59,130,246,0.2)]">
                         Professional Video Editor & Designer
                     </p>
-                    <p className="text-lg md:text-xl text-gray-400 font-light leading-relaxed md:px-0">
-                        Turning raw footage into visual stories — with style, precision, and a touch of <span className="text-white font-medium drop-shadow-[0_0_15px_rgba(255,255,255,0.4)]">cinematic magic</span>.
+                    <p className="text-lg md:text-xl text-neutral-600 dark:text-gray-400 font-light leading-relaxed md:px-0">
+                        Turning raw footage into visual stories — with style, precision, and a touch of <span className="text-neutral-900 dark:text-white font-medium drop-shadow-[0_0_15px_rgba(0,0,0,0.05)] dark:drop-shadow-[0_0_15px_rgba(255,255,255,0.4)]">cinematic magic</span>.
                     </p>
                 </m.div>
 
@@ -126,7 +128,7 @@ export default function Hero() {
                         <a
                             href="#projects"
                             onClick={scrollToProjects}
-                            className="group relative inline-flex items-center justify-center w-full sm:w-auto px-8 sm:px-10 py-4 text-base sm:text-lg font-semibold text-black bg-white rounded-full overflow-hidden transition-all duration-500 hover:scale-105 hover:shadow-[0_0_40px_rgba(255,255,255,0.4)] cursor-pointer"
+                            className="group relative inline-flex items-center justify-center w-full sm:w-auto px-8 sm:px-10 py-4 text-base sm:text-lg font-semibold text-white bg-neutral-950 dark:text-black dark:bg-white rounded-full overflow-hidden transition-all duration-500 hover:scale-105 hover:shadow-[0_0_40px_rgba(0,0,0,0.15)] dark:hover:shadow-[0_0_40px_rgba(255,255,255,0.4)] cursor-pointer"
                         >
                             <span className="relative z-10 flex items-center">
                                 View Work
@@ -137,7 +139,7 @@ export default function Hero() {
                     <MagneticButton>
                         <a
                             href="/contact"
-                            className="group inline-flex items-center justify-center w-full sm:w-auto px-8 sm:px-10 py-4 text-base sm:text-lg font-medium text-white bg-white/5 border border-white/10 rounded-full backdrop-blur-2xl transition-all duration-500 hover:bg-white/10 hover:border-white/20 hover:shadow-[0_0_30px_rgba(255,255,255,0.1)]"
+                            className="group inline-flex items-center justify-center w-full sm:w-auto px-8 sm:px-10 py-4 text-base sm:text-lg font-medium text-neutral-950 dark:text-white bg-black/5 dark:bg-white/5 border border-black/10 dark:border-white/10 rounded-full backdrop-blur-2xl transition-all duration-500 hover:bg-black/[0.08] dark:hover:bg-white/10 hover:border-black/20 dark:hover:border-white/20 hover:shadow-[0_0_30px_rgba(0,0,0,0.02)] dark:hover:shadow-[0_0_30px_rgba(255,255,255,0.1)]"
                         >
                             Contact Me
                         </a>
@@ -154,7 +156,7 @@ export default function Hero() {
             >
                 <button
                     onClick={scrollToProjects}
-                    className="flex flex-col items-center gap-3 text-white/40 hover:text-white transition-colors duration-500"
+                    className="flex flex-col items-center gap-3 text-neutral-400 dark:text-white/40 hover:text-neutral-900 dark:hover:text-white transition-colors duration-500"
                 >
                     <span className="text-[9px] sm:text-[10px] tracking-[0.3em] uppercase font-medium">Scroll</span>
                     <ArrowDown className="animate-bounce" size={18} strokeWidth={1.5} />

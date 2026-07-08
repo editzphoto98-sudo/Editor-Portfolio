@@ -11,6 +11,7 @@ import SmoothScroll from "@/components/smooth-scroll";
 import { Toaster } from "@/components/ui/sonner";
 import FramerLazyMotion from "@/components/framer-lazy-motion";
 import AnalyticsBeacon from "@/components/analytics-beacon";
+import { ThemeProvider } from "@/components/theme-provider";
 
 const inter = Inter({ subsets: ["latin"] });
 // const nunito = Nunito({ subsets: ["latin"] });
@@ -97,7 +98,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" className="dark scroll-smooth">
+    <html lang="en" className="scroll-smooth" suppressHydrationWarning>
       <head>
         <link rel="icon" href="/favicon.ico" />
         <link rel="apple-touch-icon" href="/favicon.png" />
@@ -135,25 +136,21 @@ export default function RootLayout({
           }}
         />
       </head>
-      <body
-        className={`${inter.className} min-h-screen text-white`}
-        style={{
-          background: "#020817",
-          backgroundAttachment: "fixed",
-        }}
-      >
-        <div className="grid-background-large min-h-screen">
-          <SmoothScroll>
-            <FramerLazyMotion>
-              <MouseMoveEffect />
-              <Navbar />
-              <main className="">{children}</main>
-              <Footer />
-              <JumpToTop />
-              <Toaster position="top-center" />
-            </FramerLazyMotion>
-          </SmoothScroll>
-        </div>
+      <body className={`${inter.className} min-h-screen`}>
+        <ThemeProvider attribute="class" defaultTheme="dark" enableSystem={false}>
+          <div className="grid-background-large min-h-screen">
+            <SmoothScroll>
+              <FramerLazyMotion>
+                <MouseMoveEffect />
+                <Navbar />
+                <main className="">{children}</main>
+                <Footer />
+                <JumpToTop />
+                <Toaster position="top-center" />
+              </FramerLazyMotion>
+            </SmoothScroll>
+          </div>
+        </ThemeProvider>
         <AnalyticsBeacon />
       </body>
     </html>

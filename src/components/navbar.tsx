@@ -6,6 +6,7 @@ import { usePathname } from "next/navigation";
 import { m, AnimatePresence  } from "framer-motion";
 import { Menu, X } from "lucide-react";
 import { Clapperboard } from "./ui/Clapperboard";
+import ThemeToggle from "./theme-toggle";
 
 const navItems = [
   { name: "Home", href: "/" },
@@ -41,22 +42,22 @@ export default function Navbar() {
           px-6 sm:px-8 py-3
           transition-all duration-500 ease-[cubic-bezier(0.25,0.8,0.25,1)] border
           ${scrolled || isOpen
-            ? "w-[95%] max-w-5xl rounded-3xl backdrop-blur-xl md:backdrop-blur-3xl bg-white/5 border border-white/10 shadow-2xl"
+            ? "w-[95%] max-w-5xl rounded-3xl backdrop-blur-xl md:backdrop-blur-3xl bg-slate-100/60 dark:bg-white/5 border-black/5 dark:border-white/10 shadow-[0_10px_30px_rgba(0,0,0,0.05)] dark:shadow-[0_20px_50px_rgba(0,0,0,0.3)]"
             : "w-full max-w-7xl bg-transparent border-transparent"
           }
         `}>
         <div className="w-full flex items-center justify-between">
           <Link href="/" className="flex items-center space-x-3 group">
-            <div className={`p-2 rounded-lg transition-all duration-300 ${scrolled ? "bg-white/5 group-hover:bg-blue-600" : "bg-white/10 group-hover:bg-blue-600"}`}>
+            <div className={`p-2 rounded-lg transition-all duration-300 ${scrolled ? "bg-black/5 dark:bg-white/5 group-hover:bg-blue-600" : "bg-black/10 dark:bg-white/10 group-hover:bg-blue-600"}`}>
               <Clapperboard />
             </div>
-            <span className="text-xl font-bold tracking-tight text-white group-hover:text-blue-200 transition-colors">
+            <span className="text-xl font-bold tracking-tight text-neutral-900 dark:text-white group-hover:text-blue-600 dark:group-hover:text-blue-200 transition-colors">
               Yogita Singh
             </span>
           </Link>
 
           {/* Desktop Navigation */}
-          <div className="hidden md:block">
+          <div className="hidden md:flex items-center space-x-4">
             <div className="flex items-center space-x-1">
               {navItems.map((item) => {
                 const isActive = pathname === item.href;
@@ -66,7 +67,7 @@ export default function Navbar() {
                     href={item.href}
                     className="relative px-4 py-2 rounded-full text-sm font-medium transition-all duration-300 group overflow-hidden"
                   >
-                    <span className={`relative z-10 ${isActive ? "text-white" : "text-gray-400 group-hover:text-white"}`}>
+                    <span className={`relative z-10 ${isActive ? "text-neutral-900 dark:text-white" : "text-neutral-500 dark:text-neutral-400 group-hover:text-neutral-900 dark:group-hover:text-white"}`}>
                       {item.name}
                     </span>
 
@@ -74,24 +75,27 @@ export default function Navbar() {
                     {isActive && (
                       <m.div
                         layoutId="nav-pill"
-                        className="absolute inset-0 bg-white/10 rounded-full"
+                        className="absolute inset-0 bg-black/5 dark:bg-white/10 rounded-full"
                         transition={{ type: "spring", bounce: 0.2, duration: 0.6 }}
                       />
                     )}
 
                     {/* Hover Glow */}
-                    <div className="absolute inset-0 bg-white/5 opacity-0 group-hover:opacity-100 rounded-full transition-opacity duration-300" />
+                    <div className="absolute inset-0 bg-black/[0.03] dark:bg-white/5 opacity-0 group-hover:opacity-100 rounded-full transition-opacity duration-300" />
                   </Link>
                 );
               })}
             </div>
+            <div className="w-[1px] h-5 bg-neutral-200 dark:bg-white/10" />
+            <ThemeToggle />
           </div>
 
           {/* Mobile menu button */}
-          <div className="md:hidden flex items-center">
+          <div className="md:hidden flex items-center space-x-3">
+            <ThemeToggle />
             <button
               onClick={() => setIsOpen(!isOpen)}
-              className="text-gray-300 hover:text-white p-2 rounded-lg hover:bg-white/5 transition-colors"
+              className="text-neutral-600 dark:text-gray-300 hover:text-neutral-900 dark:hover:text-white p-2 rounded-lg hover:bg-black/5 dark:hover:bg-white/5 transition-colors"
             >
               {isOpen ? <X size={24} /> : <Menu size={24} />}
             </button>
@@ -120,8 +124,8 @@ export default function Navbar() {
                       href={item.href}
                       onClick={() => setIsOpen(false)}
                       className={`block px-4 py-3 rounded-xl text-base font-medium transition-all ${pathname === item.href
-                        ? "text-white bg-blue-600/20 border border-blue-500/30"
-                        : "text-gray-400 hover:text-white hover:bg-white/5"
+                        ? "text-blue-600 dark:text-white bg-blue-600/10 dark:bg-blue-600/20 border border-blue-500/20 dark:border-blue-500/30"
+                        : "text-neutral-500 dark:text-gray-400 hover:text-neutral-900 dark:hover:text-white hover:bg-black/[0.02] dark:hover:bg-white/5"
                         }`}
                     >
                       {item.name}

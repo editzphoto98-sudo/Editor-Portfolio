@@ -65,12 +65,12 @@ export default function ContactPage() {
           {/* Spotlight Effect behind title */}
           <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[300px] h-[300px] bg-purple-500/15 blur-[100px] rounded-full pointer-events-none" />
 
-          <h1 className="text-4xl md:text-5xl lg:text-6xl font-black mt-0 md:mt-16 mb-6 text-white tracking-tight relative z-10">
-            <span className="bg-gradient-to-r from-white via-purple-100 to-gray-400 bg-clip-text text-transparent">
+          <h1 className="text-4xl md:text-5xl lg:text-6xl font-black mt-0 md:mt-16 mb-6 text-neutral-950 dark:text-white tracking-tight relative z-10">
+            <span className="bg-gradient-to-r from-neutral-950 via-purple-900 to-purple-600 dark:from-white dark:via-purple-100 dark:to-gray-400 bg-clip-text text-transparent">
               Get In Touch
             </span>
           </h1>
-          <p className="text-gray-400 text-lg md:text-xl max-w-3xl mx-auto font-light leading-relaxed relative z-10">
+          <p className="text-neutral-600 dark:text-neutral-400 text-lg md:text-xl max-w-3xl mx-auto font-light leading-relaxed relative z-10">
             Have a project in mind or want to collaborate? I'd love to hear from
             you. Let's create something amazing together!
           </p>
@@ -85,7 +85,7 @@ export default function ContactPage() {
             className="space-y-8"
           >
             <GlassmorphismCard className="p-8">
-              <h3 className="text-2xl font-semibold mb-6 text-white">
+              <h3 className="text-2xl font-semibold mb-6 text-neutral-950 dark:text-white">
                 Contact Information
               </h3>
               <div className="space-y-6">
@@ -94,10 +94,10 @@ export default function ContactPage() {
                     <Mail className="text-white" size={20} />
                   </div>
                   <div>
-                    <p className="text-gray-400 text-sm">Email</p>
+                    <p className="text-neutral-500 dark:text-gray-400 text-sm">Email</p>
                     <a
                       href="mailto:yukta062@gmail.com"
-                      className="text-white hover:text-blue-400 transition-colors"
+                      className="text-neutral-900 dark:text-white hover:text-blue-600 dark:hover:text-blue-400 transition-colors"
                     >
                       yukta062@gmail.com
                     </a>
@@ -109,12 +109,12 @@ export default function ContactPage() {
                     <MessageCircle className="text-white" size={20} />
                   </div>
                   <div>
-                    <p className="text-gray-400 text-sm">WhatsApp</p>
+                    <p className="text-neutral-500 dark:text-gray-400 text-sm">WhatsApp</p>
                     <a
                       href="https://wa.me/917067995677"
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="text-white hover:text-green-400 transition-colors"
+                      className="text-neutral-900 dark:text-white hover:text-green-600 dark:hover:text-green-400 transition-colors"
                     >
                       +91 7067995677
                     </a>
@@ -126,8 +126,8 @@ export default function ContactPage() {
                     <MapPin className="text-white" size={20} />
                   </div>
                   <div>
-                    <p className="text-gray-400 text-sm">Location</p>
-                    <p className="text-white">Durg, Chhattisgarh, India</p>
+                    <p className="text-neutral-500 dark:text-gray-400 text-sm">Location</p>
+                    <p className="text-neutral-900 dark:text-white">Durg, Chhattisgarh, India</p>
                   </div>
                 </div>
 
@@ -136,23 +136,23 @@ export default function ContactPage() {
                     <Clock className="text-white" size={20} />
                   </div>
                   <div>
-                    <p className="text-gray-400 text-sm">Availability</p>
-                    <p className="text-white">6 AM to 10 PM (IST)</p>
+                    <p className="text-neutral-500 dark:text-gray-400 text-sm">Availability</p>
+                    <p className="text-neutral-900 dark:text-white">6 AM to 10 PM (IST)</p>
                   </div>
                 </div>
               </div>
             </GlassmorphismCard>
 
             <GlassmorphismCard className="p-8">
-              <h3 className="text-2xl font-semibold mb-6 text-white">
+              <h3 className="text-2xl font-semibold mb-6 text-neutral-950 dark:text-white">
                 Why Choose Me?
               </h3>
               <div className="space-y-4">
                 <div className="flex items-start space-x-3">
                   <div className="bg-blue-600 w-2 h-2 rounded-full mt-2 flex-shrink-0"></div>
                   <div>
-                    <h4 className="font-medium text-white">Quick Turnaround</h4>
-                    <p className="text-gray-400 text-sm">
+                    <h4 className="font-medium text-neutral-900 dark:text-white">Quick Turnaround</h4>
+                    <p className="text-neutral-500 dark:text-gray-400 text-sm">
                       Fast delivery without compromising quality
                     </p>
                   </div>
@@ -160,10 +160,10 @@ export default function ContactPage() {
                 <div className="flex items-start space-x-3">
                   <div className="bg-green-600 w-2 h-2 rounded-full mt-2 flex-shrink-0"></div>
                   <div>
-                    <h4 className="font-medium text-white">
+                    <h4 className="font-medium text-neutral-900 dark:text-white">
                       Professional Quality
                     </h4>
-                    <p className="text-gray-400 text-sm">
+                    <p className="text-neutral-500 dark:text-gray-400 text-sm">
                       Cinematic edits with attention to detail
                     </p>
                   </div>
@@ -171,10 +171,10 @@ export default function ContactPage() {
                 <div className="flex items-start space-x-3">
                   <div className="bg-purple-600 w-2 h-2 rounded-full mt-2 flex-shrink-0"></div>
                   <div>
-                    <h4 className="font-medium text-white">
+                    <h4 className="font-medium text-neutral-900 dark:text-white">
                       Clear Communication
                     </h4>
-                    <p className="text-gray-400 text-sm">
+                    <p className="text-neutral-500 dark:text-gray-400 text-sm">
                       Regular updates and transparent process
                     </p>
                   </div>
@@ -190,7 +190,7 @@ export default function ContactPage() {
             transition={{ duration: 0.5, delay: 0.4 }}
           >
             <GlassmorphismCard className="p-8">
-              <h3 className="text-2xl font-semibold mb-6 text-white">
+              <h3 className="text-2xl font-semibold mb-6 text-neutral-950 dark:text-white">
                 Send Message
               </h3>
               <form className="space-y-6" onSubmit={handleSubmit}>
@@ -209,7 +209,7 @@ export default function ContactPage() {
                   <div>
                     <label
                       htmlFor="name"
-                      className="text-sm text-gray-400 mb-2 block font-medium"
+                      className="text-sm text-neutral-500 dark:text-gray-400 mb-2 block font-medium"
                     >
                       Name *
                     </label>
@@ -218,14 +218,14 @@ export default function ContactPage() {
                       name="name"
                       type="text"
                       required
-                      className="bg-white/[0.03] border-white/10 text-white placeholder:text-gray-500 rounded-xl focus-visible:ring-blue-500/30 focus-visible:border-blue-500/50 h-12"
+                      className="bg-black/[0.02] dark:bg-white/[0.03] border-black/10 dark:border-white/10 text-neutral-900 dark:text-white placeholder:text-neutral-400 dark:placeholder:text-gray-500 rounded-xl focus-visible:ring-blue-500/30 focus-visible:border-blue-500/50 h-12"
                       placeholder="Your name"
                     />
                   </div>
                   <div>
                     <label
                       htmlFor="email"
-                      className="text-sm text-gray-400 mb-2 block font-medium"
+                      className="text-sm text-neutral-500 dark:text-gray-400 mb-2 block font-medium"
                     >
                       Email *
                     </label>
@@ -234,7 +234,7 @@ export default function ContactPage() {
                       name="email"
                       type="email"
                       required
-                      className="bg-white/[0.03] border-white/10 text-white placeholder:text-gray-500 rounded-xl focus-visible:ring-blue-500/30 focus-visible:border-blue-500/50 h-12"
+                      className="bg-black/[0.02] dark:bg-white/[0.03] border-black/10 dark:border-white/10 text-neutral-900 dark:text-white placeholder:text-neutral-400 dark:placeholder:text-gray-500 rounded-xl focus-visible:ring-blue-500/30 focus-visible:border-blue-500/50 h-12"
                       placeholder="you@example.com"
                     />
                   </div>
@@ -243,30 +243,30 @@ export default function ContactPage() {
                 <div>
                   <label
                     htmlFor="project-type"
-                    className="text-sm text-gray-400 mb-2 block font-medium"
+                    className="text-sm text-neutral-500 dark:text-gray-400 mb-2 block font-medium"
                   >
                     Project Type
                   </label>
                   <select
                     id="project-type"
                     name="project-type"
-                    className="w-full bg-white/[0.03] border border-white/10 text-white rounded-xl px-4 py-3 h-12 appearance-none focus:outline-none focus:ring-2 focus:ring-blue-500/30 focus:border-blue-500/50 transition-all custom-select"
+                    className="w-full bg-black/[0.02] dark:bg-white/[0.03] border border-black/10 dark:border-white/10 text-neutral-900 dark:text-white rounded-xl px-4 py-3 h-12 appearance-none focus:outline-none focus:ring-2 focus:ring-blue-500/30 focus:border-blue-500/50 transition-all custom-select"
                   >
-                    <option value="" className="bg-gray-900 text-gray-400">Select project type</option>
-                    <option value="youtube" className="bg-gray-900">YouTube Video</option>
-                    <option value="social-media" className="bg-gray-900">Social Media Content</option>
-                    <option value="promo" className="bg-gray-900">Promotional Video</option>
-                    <option value="tutorial" className="bg-gray-900">Tutorial/Course</option>
-                    <option value="documentary" className="bg-gray-900">Documentary</option>
-                    <option value="animation" className="bg-gray-900">Logo Animation</option>
-                    <option value="other" className="bg-gray-900">Other</option>
+                    <option value="" className="bg-white dark:bg-neutral-950 text-neutral-400 dark:text-gray-400">Select project type</option>
+                    <option value="youtube" className="bg-white dark:bg-neutral-950 text-neutral-900 dark:text-white">YouTube Video</option>
+                    <option value="social-media" className="bg-white dark:bg-neutral-950 text-neutral-900 dark:text-white">Social Media Content</option>
+                    <option value="promo" className="bg-white dark:bg-neutral-950 text-neutral-900 dark:text-white">Promotional Video</option>
+                    <option value="tutorial" className="bg-white dark:bg-neutral-950 text-neutral-900 dark:text-white">Tutorial/Course</option>
+                    <option value="documentary" className="bg-white dark:bg-neutral-950 text-neutral-900 dark:text-white">Documentary</option>
+                    <option value="animation" className="bg-white dark:bg-neutral-950 text-neutral-900 dark:text-white">Logo Animation</option>
+                    <option value="other" className="bg-white dark:bg-neutral-950 text-neutral-900 dark:text-white">Other</option>
                   </select>
                 </div>
 
                 <div>
                   <label
                     htmlFor="timeline"
-                    className="text-sm text-gray-400 mb-2 block font-medium"
+                    className="text-sm text-neutral-500 dark:text-gray-400 mb-2 block font-medium"
                   >
                     Timeline
                   </label>
@@ -274,7 +274,7 @@ export default function ContactPage() {
                     id="timeline"
                     name="timeline"
                     type="text"
-                    className="bg-white/[0.03] border-white/10 text-white placeholder:text-gray-500 rounded-xl focus-visible:ring-blue-500/30 focus-visible:border-blue-500/50 h-12"
+                    className="bg-black/[0.02] dark:bg-white/[0.03] border-black/10 dark:border-white/10 text-neutral-900 dark:text-white placeholder:text-neutral-400 dark:placeholder:text-gray-500 rounded-xl focus-visible:ring-blue-500/30 focus-visible:border-blue-500/50 h-12"
                     placeholder="e.g., 1 week, ASAP"
                   />
                 </div>
@@ -282,7 +282,7 @@ export default function ContactPage() {
                 <div>
                   <label
                     htmlFor="message"
-                    className="text-sm text-gray-400 mb-2 block font-medium"
+                    className="text-sm text-neutral-500 dark:text-gray-400 mb-2 block font-medium"
                   >
                     Project Details *
                   </label>
@@ -292,28 +292,28 @@ export default function ContactPage() {
                     required
                     rows={6}
                     placeholder="Tell me about your project..."
-                    className="bg-white/[0.03] border-white/10 text-white placeholder:text-gray-500 rounded-xl focus-visible:ring-blue-500/30 focus-visible:border-blue-500/50 resize-none p-4"
+                    className="bg-black/[0.02] dark:bg-white/[0.03] border-black/10 dark:border-white/10 text-neutral-900 dark:text-white placeholder:text-neutral-400 dark:placeholder:text-gray-500 rounded-xl focus-visible:ring-blue-500/30 focus-visible:border-blue-500/50 resize-none p-4"
                   />
                 </div>
 
                 <Button
                   type="submit"
                   size="lg"
-                  className="w-full bg-white text-black hover:bg-gray-200 rounded-full h-14 text-base font-semibold shadow-[0_0_30px_rgba(255,255,255,0.2)] hover:shadow-[0_0_40px_rgba(255,255,255,0.4)] transition-all hover:scale-105 cursor-pointer mt-4"
+                  className="w-full bg-neutral-900 text-white hover:bg-neutral-800 dark:bg-white dark:text-black dark:hover:bg-gray-200 rounded-full h-14 text-base font-semibold shadow-[0_4px_20px_rgba(0,0,0,0.08)] dark:shadow-[0_0_30px_rgba(255,255,255,0.2)] hover:shadow-[0_0_40px_rgba(255,255,255,0.4)] transition-all hover:scale-105 cursor-pointer mt-4"
                 >
                   <Send className="mr-2" size={18} />
                   Send Message
                 </Button>
               </form>
 
-              <div className="mt-6 pt-6 border-t border-gray-700">
-                <p className="text-gray-400 text-sm text-center">
+              <div className="mt-6 pt-6 border-t border-black/5 dark:border-gray-700">
+                <p className="text-neutral-500 dark:text-gray-400 text-sm text-center">
                   Prefer to chat directly? Reach out on{" "}
                   <a
                     href="https://wa.me/917067995677"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="text-green-400 hover:text-green-300"
+                    className="text-green-600 hover:text-green-500 dark:text-green-400 dark:hover:text-green-300 font-medium"
                   >
                     WhatsApp
                   </a>{" "}

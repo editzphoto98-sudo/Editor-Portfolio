@@ -85,17 +85,17 @@ export default function ProjectGrid({ initialCategories, initialProjects }: Proj
                 key={category}
                 onClick={() => setSelectedCategory(category)}
                 className={`
-                relative px-5 py-2.5 rounded-full text-sm font-medium transition-all duration-300
+                relative px-5 py-2.5 rounded-full text-sm font-medium transition-all duration-300 cursor-pointer
                 ${selectedCategory === category
-                    ? "bg-white text-black shadow-[0_0_20px_rgba(255,255,255,0.3)] scale-105"
-                    : "bg-white/5 text-gray-400 hover:bg-white/10 hover:text-white border border-white/5"
+                    ? "bg-neutral-900 text-white dark:bg-white dark:text-black shadow-[0_4px_20px_rgba(0,0,0,0.08)] dark:shadow-[0_0_20px_rgba(255,255,255,0.3)] scale-105"
+                    : "bg-black/5 dark:bg-white/5 text-neutral-500 dark:text-gray-400 hover:bg-black/[0.08] dark:hover:bg-white/10 hover:text-neutral-900 dark:hover:text-white border border-black/5 dark:border-white/5"
                 }
                 `}
             >
                 {category}
                 <span className={`
                 ml-2 text-[10px] px-1.5 py-0.5 rounded-full transition-colors
-                ${selectedCategory === category ? "bg-black text-white" : "bg-white/10 text-gray-400"}
+                ${selectedCategory === category ? "bg-white text-black dark:bg-black dark:text-white" : "bg-black/10 dark:bg-white/10 text-neutral-500 dark:text-gray-400"}
                 `}>
                 {count}
                 </span>
@@ -132,7 +132,7 @@ export default function ProjectGrid({ initialCategories, initialProjects }: Proj
                 onClick={loadMoreProjects}
                 disabled={loading}
                 size="lg"
-                className="bg-white text-black hover:bg-gray-200 rounded-full px-8 h-12 font-medium transition-all hover:scale-105"
+                className="bg-neutral-900 text-white hover:bg-neutral-800 dark:bg-white dark:text-black dark:hover:bg-gray-200 rounded-full px-8 h-12 font-medium transition-all hover:scale-105 cursor-pointer"
             >
                 {loading ? (
                 <>

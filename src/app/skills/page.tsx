@@ -90,11 +90,11 @@ export default function SkillsPage() {
                         className="object-contain"
                       />
                     </div>
-                    <h3 className="text-lg font-semibold text-white">
+                    <h3 className="text-lg font-semibold text-neutral-950 dark:text-white">
                       {skill.name}
                     </h3>
                   </div>
-                  <p className="text-gray-400 text-sm mb-4">
+                  <p className="text-neutral-600 dark:text-neutral-400 text-sm mb-4">
                     {skill.description}
                   </p>
                 </GlassmorphismCard>
@@ -110,7 +110,7 @@ export default function SkillsPage() {
           transition={{ duration: 0.5, delay: 0.3 }}
           className="mb-24 hidden md:block"
         >
-          <h3 className="text-xl font-bold mb-6 text-white text-center">
+          <h3 className="text-xl font-bold mb-6 text-neutral-950 dark:text-white text-center">
             My Editing Timeline Suite
           </h3>
           <TimelineWidget />
@@ -123,7 +123,7 @@ export default function SkillsPage() {
           transition={{ duration: 0.5, delay: 0.4 }}
           className="mb-20"
         >
-          <h2 className="text-2xl md:text-3xl font-bold mb-8 text-white text-center">
+          <h2 className="text-2xl md:text-3xl font-bold mb-8 text-neutral-950 dark:text-white text-center">
             Specializations
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -136,10 +136,10 @@ export default function SkillsPage() {
               >
                 <GlassmorphismCard className="p-6 h-full">
                   <div className="text-3xl mb-4">{spec.icon}</div>
-                  <h3 className="text-lg font-semibold mb-3 text-white">
+                  <h3 className="text-lg font-semibold mb-3 text-neutral-950 dark:text-white">
                     {spec.title}
                   </h3>
-                  <p className="text-gray-400 text-sm mb-4">
+                  <p className="text-neutral-600 dark:text-neutral-400 text-sm mb-4">
                     {spec.description}
                   </p>
                   <div className="space-y-2">
@@ -147,7 +147,7 @@ export default function SkillsPage() {
                       <Badge
                         key={skill}
                         variant="outline"
-                        className="border-gray-600 text-gray-300 mr-2 mb-2"
+                        className="border-neutral-300 dark:border-gray-600 text-neutral-600 dark:text-gray-300 mr-2 mb-2"
                       >
                         {skill}
                       </Badge>
@@ -166,7 +166,7 @@ export default function SkillsPage() {
           transition={{ duration: 0.5, delay: 0.8 }}
           className="mb-20"
         >
-          <h2 className="text-2xl md:text-3xl font-bold mb-8 text-white text-center">
+          <h2 className="text-2xl md:text-3xl font-bold mb-8 text-neutral-950 dark:text-white text-center">
             Achievements
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
@@ -182,10 +182,10 @@ export default function SkillsPage() {
                     className={`${achievement.color} mx-auto mb-4`}
                     size={32}
                   />
-                  <h3 className="text-lg font-semibold mb-2 text-white">
+                  <h3 className="text-lg font-semibold mb-2 text-neutral-950 dark:text-white">
                     {achievement.title}
                   </h3>
-                  <p className="text-gray-400 text-sm">
+                  <p className="text-neutral-600 dark:text-neutral-400 text-sm">
                     {achievement.description}
                   </p>
                 </GlassmorphismCard>
@@ -236,7 +236,7 @@ export default function SkillsPage() {
           transition={{ duration: 0.5, delay: 1.2 }}
           className="mb-20"
         >
-          <h2 className="text-2xl md:text-3xl font-bold mb-8 text-white text-center">
+          <h2 className="text-2xl md:text-3xl font-bold mb-8 text-neutral-950 dark:text-white text-center">
             My Workflow
           </h2>
 
@@ -248,11 +248,13 @@ export default function SkillsPage() {
                   className="vertical-timeline-element--work"
                   date={`Step ${step.step}`}
                   contentStyle={{
-                    background: "rgb(30, 41, 59)",
-                    color: "#fff",
+                    background: "var(--glass-bg)",
+                    color: "var(--foreground)",
+                    border: "1px solid var(--glass-border)",
+                    boxShadow: "0 8px 32px 0 var(--glass-shadow)"
                   }}
                   contentArrowStyle={{
-                    borderRight: "7px solid rgb(30, 41, 59)",
+                    borderRight: "7px solid var(--glass-border)",
                   }}
                   iconStyle={{
                     background: iconMap[index]?.bg || "#3b82f6",
@@ -260,10 +262,10 @@ export default function SkillsPage() {
                   }}
                   icon={iconMap[index]?.icon || <Star size={20} />}
                 >
-                  <h3 className="vertical-timeline-element-title text-white text-lg font-semibold">
+                  <h3 className="vertical-timeline-element-title text-neutral-950 dark:text-white text-lg font-semibold">
                     {step.title}
                   </h3>
-                  <p className="text-gray-300">{step.description}</p>
+                  <p className="text-neutral-600 dark:text-gray-300">{step.description}</p>
                 </VerticalTimelineElement>
               ))}
 

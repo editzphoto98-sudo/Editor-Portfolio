@@ -47,7 +47,7 @@ export default function ProjectDetails({ project }: ProjectDetailsProps) {
                     <Button
                         asChild
                         variant="outline"
-                        className="pl-4 pr-6 py-2 h-auto text-sm font-medium text-white bg-white/5 border border-white/10 rounded-full shadow-[0_4px_12px_rgba(0,0,0,0.1)] hover:shadow-[0_4px_20px_rgba(255,255,255,0.1)] hover:bg-white/10 hover:border-white/20 transition-all duration-300 backdrop-blur-xl group"
+                        className="pl-4 pr-6 py-2 h-auto text-sm font-medium text-neutral-900 dark:text-white bg-black/5 dark:bg-white/5 border border-black/10 dark:border-white/10 rounded-full shadow-[0_4px_12px_rgba(0,0,0,0.02)] dark:shadow-[0_4px_20px_rgba(255,255,255,0.1)] hover:shadow-[0_4px_20px_rgba(0,0,0,0.05)] dark:hover:shadow-[0_4px_20px_rgba(255,255,255,0.2)] hover:bg-black/10 dark:hover:bg-white/10 hover:border-black/20 dark:hover:border-white/20 transition-all duration-300 backdrop-blur-xl group cursor-pointer"
                     >
                         <Link href="/">
                             <ArrowLeft className="mr-2" size={16} />
@@ -114,27 +114,27 @@ export default function ProjectDetails({ project }: ProjectDetailsProps) {
                         <div className="mb-6">
                             <div className="flex flex-col sm:flex-row sm:items-end sm:justify-end mb-4 gap-4">
                                 {project.duration && (
-                                    <div className="flex items-center text-gray-400 text-sm">
+                                    <div className="flex items-center text-neutral-500 dark:text-gray-400 text-sm">
                                         <Clock className="mr-1" size={14} />
                                         {project.duration}
                                     </div>
                                 )}
                             </div>
-                            <h1 className="text-2xl md:text-3xl lg:text-4xl font-bold mb-4 text-white">
+                            <h1 className="text-2xl md:text-3xl lg:text-4xl font-bold mb-4 text-neutral-950 dark:text-white">
                                 {project.video_title}
                             </h1>
-                            <p className="text-gray-300 text-base md:text-lg leading-relaxed">
+                            <p className="text-neutral-700 dark:text-gray-300 text-base md:text-lg leading-relaxed">
                                 {project.video_description}
                             </p>
                         </div>
 
                         <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
                             <div>
-                                <h3 className="text-lg font-semibold mb-3 text-white">
+                                <h3 className="text-lg font-semibold mb-3 text-neutral-950 dark:text-white">
                                     Project Details
                                 </h3>
                                 <div className="space-y-2 text-sm">
-                                    <div className="flex items-center text-gray-400">
+                                    <div className="flex items-center text-neutral-500 dark:text-gray-400">
                                         <Calendar className="mr-2" size={14} />
                                         <span>
                                             Published:{" "}
@@ -148,7 +148,7 @@ export default function ProjectDetails({ project }: ProjectDetailsProps) {
                                             )}
                                         </span>
                                     </div>
-                                    <div className="flex items-center text-gray-400">
+                                    <div className="flex items-center text-neutral-500 dark:text-gray-400">
                                         <User className="mr-2" size={14} />
                                         <span>Client: {project.client_name}</span>
                                     </div>
@@ -157,7 +157,7 @@ export default function ProjectDetails({ project }: ProjectDetailsProps) {
 
                             {project.software_used && (
                                 <div>
-                                    <h3 className="text-lg font-semibold mb-3 text-white">
+                                    <h3 className="text-lg font-semibold mb-3 text-neutral-950 dark:text-white">
                                         Software Used
                                     </h3>
                                     <div className="flex flex-wrap gap-2">
@@ -165,7 +165,7 @@ export default function ProjectDetails({ project }: ProjectDetailsProps) {
                                             <Badge
                                                 key={software}
                                                 variant="outline"
-                                                className="border-gray-600 text-gray-300"
+                                                className="border-neutral-300 dark:border-gray-600 text-neutral-600 dark:text-gray-300"
                                             >
                                                 {software}
                                             </Badge>
@@ -176,7 +176,7 @@ export default function ProjectDetails({ project }: ProjectDetailsProps) {
                         </div>
 
                         <div className="mb-8">
-                            <h3 className="text-lg font-semibold mb-3 text-white">
+                            <h3 className="text-lg font-semibold mb-3 text-neutral-950 dark:text-white">
                                 Categories
                             </h3>
                             <div className="flex flex-wrap gap-2">
@@ -184,7 +184,7 @@ export default function ProjectDetails({ project }: ProjectDetailsProps) {
                                     <Badge
                                         key={category}
                                         variant="outline"
-                                        className="border-gray-600 text-gray-300"
+                                        className="border-neutral-300 dark:border-gray-600 text-neutral-600 dark:text-gray-300"
                                     >
                                         {category}
                                     </Badge>
@@ -216,7 +216,7 @@ export default function ProjectDetails({ project }: ProjectDetailsProps) {
                         className="mt-16"
                     >
                         <GlassmorphismCard className="p-8">
-                            <h3 className="text-2xl font-semibold mb-6 text-white text-center">
+                            <h3 className="text-2xl font-semibold mb-6 text-neutral-950 dark:text-white text-center">
                                 Project Gallery
                             </h3>
                             <Carousel className="w-full max-w-4xl mx-auto">
@@ -252,7 +252,7 @@ export default function ProjectDetails({ project }: ProjectDetailsProps) {
                         className="mt-16"
                     >
                         <GlassmorphismCard className="p-8">
-                            <h3 className="text-2xl font-semibold mb-6 text-white text-center">
+                            <h3 className="text-2xl font-semibold mb-6 text-neutral-950 dark:text-white text-center">
                                 Client Feedback
                             </h3>
                             <div className="max-w-3xl mx-auto">
@@ -265,17 +265,17 @@ export default function ProjectDetails({ project }: ProjectDetailsProps) {
                                         className="rounded-full"
                                     />
                                     <div className="text-center">
-                                        <p className="font-medium text-white text-lg">
+                                        <p className="font-medium text-neutral-900 dark:text-white text-lg">
                                             {project.client_name}
                                         </p>
                                     </div>
                                 </div>
                                 <div className="relative">
                                     <Quote
-                                        className="absolute -top-4 -left-4 text-blue-400 opacity-50"
+                                        className="absolute -top-4 -left-4 text-blue-500 dark:text-blue-400 opacity-50"
                                         size={32}
                                     />
-                                    <blockquote className="text-gray-300 italic text-lg text-center leading-relaxed pl-8">
+                                    <blockquote className="text-neutral-700 dark:text-gray-300 italic text-lg text-center leading-relaxed pl-8">
                                         "{project.client_feedback}"
                                     </blockquote>
                                 </div>
