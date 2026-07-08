@@ -1,7 +1,10 @@
 "use client";
 
+import { useState, useRef, useEffect } from "react";
 import Image from "next/image";
 import Link from "next/link";
+import { m, AnimatePresence } from "framer-motion";
+import { Play, X } from "lucide-react";
 import GlassmorphismCard from "@/components/glassmorphism-card";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
@@ -13,27 +16,105 @@ interface ProjectCardProps {
 }
 
 export default function ProjectCard({ project }: ProjectCardProps) {
+    const [isPlaying, setIsPlaying] = useState(false);
+    const cardRef = useRef<HTMLDivElement>(null);
     const embedUrl = getYouTubeEmbedUrl(project.video_link);
 
+    // Stop playing if user clicks outside the card
+    useEffect(() => {
+        const handleClickOutside = (event: MouseEvent) => {
+            if (cardRef.current && !cardRef.current.contains(event.target as Node)) {
+                setIsPlaying(false);
+            }
+        };
+
+        if (isPlaying) {
+            document.addEventListener("mousedown", handleClickOutside);
+        }
+
+        return () => {
+            document.removeEventListener("mousedown", handleClickOutside);
+        };
+    }, [isPlaying]);
+
+    const handlePlayClick = (e: React.MouseEvent) => {
+        e.stopPropagation();
+        e.preventDefault();
+        setIsPlaying(true);
+    };
+
+    const handleStopClick = (e?: React.MouseEvent) => {
+        e?.stopPropagation();
+        e?.preventDefault();
+        setIsPlaying(false);
+    };
+
     return (
-        <div className="h-full">
-            <GlassmorphismCard className="h-full group hover:shadow-2xl hover:shadow-blue-900/10 transition-shadow duration-500 flex flex-col">
+        <div ref={cardRef} className="h-full">
+            <GlassmorphismCard className="h-full group/card hover:shadow-2xl hover:shadow-blue-900/10 transition-shadow duration-500 flex flex-col">
                 <div className="flex flex-col h-full p-5">
-                    {/* Media Area - Directly embed video iframe */}
+                    {/* Media Area - Thumbnail Cover or Video Player */}
                     <div className="relative overflow-hidden rounded-2xl aspect-video mb-5 shadow-lg bg-black isolate">
-                        {embedUrl ? (
-                            <iframe
-                                src={`${embedUrl}?autoplay=0&mute=1&controls=1`}
-                                title={project.video_title}
-                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                                allowFullScreen
-                                className="w-full h-full border-0"
-                            />
-                        ) : (
-                            <div className="w-full h-full flex items-center justify-center bg-neutral-900 text-neutral-500 text-xs">
-                                Video unavailable
-                            </div>
-                        )}
+                        <AnimatePresence mode="wait">
+                            {isPlaying && embedUrl ? (
+                                <m.div
+                                    key="video-player"
+                                    initial={{ opacity: 0 }}
+                                    animate={{ opacity: 1 }}
+                                    exit={{ opacity: 0 }}
+                                    className="absolute inset-0 z-20"
+                                >
+                                    <iframe
+                                        src={`${embedUrl}?autoplay=1&mute=1&controls=1`}
+                                        title={project.video_title}
+                                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                                        allowFullScreen
+                                        className="w-full h-full border-0"
+                                    />
+                                    <button
+                                        onClick={handleStopClick}
+                                        className="absolute top-2 right-2 bg-black/60 hover:bg-black/80 text-white p-1.5 rounded-full backdrop-blur-md transition-colors z-30 cursor-pointer"
+                                        aria-label="Close preview"
+                                    >
+                                        <X size={16} />
+                                    </button>
+                                </m.div>
+                            ) : (
+                                <div
+                                    key="thumbnail"
+                                    className="relative w-full h-full cursor-pointer group/thumb"
+                                    onClick={handlePlayClick}
+                                >
+                                    {project.cover_image && (
+                                        <Image
+                                            src={
+                                                project.cover_image.startsWith("/") || project.cover_image.startsWith("http")
+                                                    ? project.cover_image
+                                                    : `https://img.youtube.com/vi/${project.cover_image}/maxresdefault.jpg`
+                                            }
+                                            alt={project.video_title}
+                                            fill
+                                            className="w-full h-full object-cover transition-transform duration-700 group-hover/thumb:scale-110"
+                                            sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                                        />
+                                    )}
+
+                                    {/* Play Button Overlay */}
+                                    <div className="absolute inset-0 bg-black/20 group-hover/thumb:bg-black/40 transition-colors duration-300 flex items-center justify-center backdrop-blur-[0px] group-hover/thumb:backdrop-blur-[2px]">
+                                        <div className="w-16 h-16 rounded-full bg-white/20 backdrop-blur-md flex items-center justify-center border border-white/30 text-white transform scale-90 group-hover/thumb:scale-110 transition-all duration-300 shadow-xl shadow-black/20">
+                                            <Play className="ml-1 fill-white" size={28} />
+                                        </div>
+                                    </div>
+
+                                    {/* Duration Badge */}
+                                    {project.duration && (
+                                        <div className="absolute bottom-3 right-3 bg-black/80 backdrop-blur-sm border border-white/10 text-white text-[10px] font-bold px-2 py-1 rounded-md">
+                                            {project.duration}
+                                        </div>
+                                    )}
+                                </div>
+                            )}
+                        </AnimatePresence>
                     </div>
 
                     {/* Content Area */}
