@@ -1,10 +1,8 @@
-# Niloy Bhowmick
+# Yogita Singh - Video Editor & Designer Portfolio
 
 <div align="center">
 
-![Project Banner](./public/demo.png)
-
-### Midnight Liquid Glass Portfolio
+### Yogita Singh - Video Editor & Designer Portfolio
 *A premium, responsive video editing portfolio built with modern web technologies.*
 
 [![Next.js](https://img.shields.io/badge/Next.js_15-black?style=for-the-badge&logo=next.js&logoColor=white)](https://nextjs.org/)
@@ -12,7 +10,7 @@
 [![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-38B2AC?style=for-the-badge&logo=tailwind-css&logoColor=white)](https://tailwindcss.com/)
 [![Framer Motion](https://img.shields.io/badge/Framer_Motion-black?style=for-the-badge&logo=framer&logoColor=white)](https://www.framer.com/motion/)
 
-[**🌐 Live Website**](https://www.itsniloy.me)
+[**🌐 Live Website**](https://github.com/editzphoto98-sudo/Editor-Portfolio)
 
 </div>
 
@@ -23,26 +21,27 @@ This project implements a unique **"Midnight Liquid Glass"** aesthetic, focusing
 -   **Frosted Glass 2.0**: Premium `backdrop-blur-3xl` with milky-white tint for distinct separation.
 -   **Unified Liquid Navigation**: A shapeshifting navbar that fluidly expands to contain mobile menus.
 -   **Dynamic Interactions**: Mouse-following gradients and spotlight effects.
--   **YouTube Integration**: Custom light-weight players with high-quality playback enforcement.
+-   **Day & Night Mode**: Switch between premium cinematic dark theme and professional high-contrast light theme.
+-   **Video Integrations**: Playable video grids showcasing direct Google Drive/YouTube embeds without sluggish page loads.
 
 ## 🚀 Getting Started
 
 ### Prerequisites
 
 - Node.js 22+
-- pnpm package manager
+- pnpm or npm package manager
 
 ### Installation
 
 1.  **Clone the repository**
     ```bash
-    git clone https://github.com/maruf-pfc/niloy-bhowmick.git
-    cd niloy-bhowmick
+    git clone https://github.com/editzphoto98-sudo/Editor-Portfolio.git
+    cd Editor-Portfolio
     ```
 
 2.  **Install dependencies**
     ```bash
-    pnpm install
+    npm install
     ```
 
 3.  **Set up environment variables**
@@ -52,12 +51,12 @@ This project implements a unique **"Midnight Liquid Glass"** aesthetic, focusing
     Add your environment variables:
     ```env
     RESEND_API_KEY=your_resend_api_key_here
-    NEXT_PUBLIC_SITE_URL=https://www.itsniloy.me
+    NEXT_PUBLIC_SITE_URL=https://github.com/editzphoto98-sudo/Editor-Portfolio
     ```
 
 4.  **Run the development server**
     ```bash
-    pnpm dev
+    npm run dev
     ```
 
 5.  **Open your browser**
@@ -66,137 +65,70 @@ This project implements a unique **"Midnight Liquid Glass"** aesthetic, focusing
 ### Building for Production
 
 ```bash
-pnpm build
-pnpm start
+npm run build
+npm run start
 ```
-
-### Running Tests
-
-To run the unit test suite once:
-```bash
-pnpm test
-```
-
-To run tests in interactive watch mode:
-```bash
-pnpm run test:watch
-```
-
-## 🚀 Deployment
-
-### Vercel (Recommended)
-
-1.  Push code to GitHub.
-2.  Connect repository to Vercel.
-3.  Add environment variables in Vercel dashboard:
-    ```env
-    RESEND_API_KEY=your_production_resend_key
-    NEXT_PUBLIC_SITE_URL=https://www.itsniloy.me
-    ```
-4.  Deploy automatically.
-
-### Other Platforms
--   **Netlify**: Static site deployment with form handling.
--   **AWS Amplify**: Full-stack deployment with API integration.
--   **GitHub Pages**: Static deployment (limited functionality).
 
 ## 📂 Project Structure
 
 ```plaintext
-📦niloy-bhowmick
+📦Editor-Portfolio
  ┣ 📂public
- ┃ ┣ 📂companies
  ┃ ┣ 📂project-images
  ┃ ┣ 📂tools
- ┃ ┣ 📜demo.png
- ┃ ┣ 📜logo-transparent.png
- ┃ ┣ 📜logo-white.png
- ┃ ┣ 📜niloybhowmick.png
+ ┃ ┣ 📜yogitasingh.jpg
  ┃ ┗ 📜not-found.jpg
  ┣ 📂src
  ┃ ┣ 📂app
- ┃ ┃ ┣ 📂_services
  ┃ ┃ ┣ 📂about
  ┃ ┃ ┣ 📂api
  ┃ ┃ ┃ ┗ 📂send-email
  ┃ ┃ ┣ 📂contact
  ┃ ┃ ┣ 📂project
  ┃ ┃ ┣ 📂skills
- ┃ ┃ ┣ 📜favicon.ico
  ┃ ┃ ┣ 📜globals.css
  ┃ ┃ ┣ 📜layout.tsx
- ┃ ┃ ┣ 📜loading.tsx
- ┃ ┃ ┣ 📜not-found.tsx
  ┃ ┃ ┗ 📜page.tsx
  ┃ ┣ 📂components
- ┃ ┃ ┣ 📂animate-ui
  ┃ ┃ ┣ 📂ui
  ┃ ┃ ┣ 📜CTASection.tsx
- ┃ ┃ ┣ 📜email-template.tsx
  ┃ ┃ ┣ 📜footer.tsx
  ┃ ┃ ┣ 📜glassmorphism-card.tsx
- ┃ ┃ ┣ 📜intro-animation.tsx
- ┃ ┃ ┣ 📜jump-to-top.tsx
- ┃ ┃ ┣ 📜mouse-move-effect.tsx
  ┃ ┃ ┣ 📜navbar.tsx
  ┃ ┃ ┗ 📜theme-provider.tsx
  ┃ ┣ 📂db
- ┃ ┃ ┣ 📜categories.ts
  ┃ ┃ ┣ 📜clients.ts
- ┃ ┃ ┣ 📜data.ts
- ┃ ┃ ┗ 📜skills.ts
- ┃ ┣ 📂hooks
- ┃ ┃ ┗ 📜use-mobile.tsx
+ ┃ ┃ ┗ 📜projects.ts
  ┃ ┣ 📂lib
  ┃ ┃ ┣ 📜helper.ts
- ┃ ┃ ┣ 📜helper.test.ts
  ┃ ┃ ┗ 📜utils.ts
- ┃ ┣ 📂styles
  ┃ ┗ 📂types
- ┃ ┃ ┣ 📜cta.ts
  ┃ ┃ ┗ 📜videos.ts
- ┣ 📜.dockerignore
- ┣ 📜.env
- ┣ 📜.gitignore
- ┣ 📜Dockerfile
- ┣ 📜LICENSE
- ┣ 📜README.md
- ┣ 📜components.json
- ┣ 📜eslint.config.mjs
- ┣ 📜next-env.d.ts
- ┣ 📜next.config.ts
- ┣ 📜package.json
- ┣ 📜pnpm-lock.yaml
- ┣ 📜postcss.config.mjs
- ┣ 📜tsconfig.json
- ┗ 📜vitest.config.ts
 ```
 
 ### 📝 Adding New Video Projects
 
-To add a new project, simply edit `src/lib/data.ts`. No new code required!
+To add a new project, edit `src/db/projects.ts`:
 
 ```typescript
-export const videoProjectsData = {
-  "Talking Head": [
-    {
-      id: "unique-video-id",
-      video_title: "Your Video Title",
-      video_description: "Detailed description...",
-      tags: ["Tag1", "Tag2"],
-      cover_image: "youtube-video-id",
-      publish_date: "2024-01-01",
-      client_name: "Client Name",
-      client_image: "/companies/client-logo.png",
-      client_feedback: "Client testimonial...",
-      video_link: "https://youtu.be/video-id",
-      project_images: ["/path/to/image1.jpg"],
-      category: "Talking Head",
-      duration: "5:30",
-      software_used: ["DaVinci Resolve", "After Effects"],
-    },
-  ],
-};
+export const allVideoProjects: VideoProject[] = [
+  {
+    id: "unique-video-id",
+    video_title: "Your Video Title",
+    video_description: "Detailed description...",
+    tags: ["Tag1", "Tag2"],
+    cover_image: "/project-images/your-thumbnail.jpg",
+    publish_date: "2026-07-08",
+    client_name: "Client Name",
+    client_image: "/yogitasingh.jpg",
+    client_feedback: "Client testimonial...",
+    video_link: "https://youtu.be/video-id",
+    project_images: [],
+    category: ["Event Highlight"],
+    duration: "5:30",
+    software_used: ["Adobe Premiere Pro", "Adobe After Effects"],
+  },
+];
 ```
 
 ## 🛠️ Tech Stack
@@ -205,14 +137,3 @@ export const videoProjectsData = {
 -   **Styling**: Tailwind CSS, Shadcn/ui
 -   **Animation**: Framer Motion
 -   **Backend**: Resend (Email), Server Actions
--   **Testing**: Vitest (Unit testing)
-
----
-
-<div align="center">
-
-## Star History
-
-[![Star History Chart](https://api.star-history.com/svg?repos=maruf-pfc/niloy-bhowmick&type=Date)](https://star-history.com/#maruf-pfc/niloy-bhowmick&Date)
-
-</div>
