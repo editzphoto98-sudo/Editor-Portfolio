@@ -7,11 +7,11 @@ import MagneticButton from "./magnetic-button";
 import { useLenis } from "lenis/react";
 
 const floatingBadges = [
-  { name: "Pr", color: "border-purple-500/30 text-purple-400 bg-purple-500/5", glow: "rgba(168,85,247,0.15)", top: "15%", left: "10%", delay: 0 },
-  { name: "Ae", color: "border-blue-500/30 text-blue-400 bg-blue-500/5", glow: "rgba(59,130,246,0.15)", top: "25%", right: "8%", delay: 1.5 },
-  { name: "Ps", color: "border-cyan-500/30 text-cyan-400 bg-cyan-500/5", glow: "rgba(6,182,212,0.15)", bottom: "35%", left: "7%", delay: 0.8 },
-  { name: "Cc", color: "border-teal-500/30 text-teal-400 bg-teal-500/5", glow: "rgba(20,184,166,0.15)", bottom: "40%", right: "12%", delay: 2.2 },
-  { name: "Cv", color: "border-pink-500/30 text-pink-400 bg-pink-500/5", glow: "rgba(236,72,153,0.15)", top: "10%", right: "30%", delay: 1 },
+  { name: "Pr", color: "border-purple-500/30 text-purple-400 bg-purple-500/5", glow: "rgba(168,85,247,0.15)", top: "14%", left: "4%", delay: 0 },
+  { name: "Ae", color: "border-blue-500/30 text-blue-400 bg-blue-500/5", glow: "rgba(59,130,246,0.15)", top: "25%", right: "4%", delay: 1.5 },
+  { name: "Ps", color: "border-cyan-500/30 text-cyan-400 bg-cyan-500/5", glow: "rgba(6,182,212,0.15)", bottom: "32%", left: "3%", delay: 0.8 },
+  { name: "Cc", color: "border-teal-500/30 text-teal-400 bg-teal-500/5", glow: "rgba(20,184,166,0.15)", bottom: "38%", right: "4%", delay: 2.2 },
+  { name: "Cv", color: "border-pink-500/30 text-pink-400 bg-pink-500/5", glow: "rgba(236,72,153,0.15)", top: "8%", right: "25%", delay: 1, hideMobile: true },
 ];
 
 export default function Hero() {
@@ -44,13 +44,13 @@ export default function Hero() {
                     initial={{ opacity: 0, y: 50 }}
                     animate={{ 
                         opacity: 1, 
-                        y: [0, -15, 0],
-                        x: [0, 10, 0]
+                        y: idx % 2 === 0 ? [-10, 10, -10] : [10, -10, 10],
+                        x: idx % 2 === 0 ? [-20, 20, -20] : [20, -20, 20]
                     }}
                     transition={{ 
                         opacity: { duration: 1, delay: badge.delay },
-                        y: { repeat: Infinity, duration: 6 + idx, ease: "easeInOut" },
-                        x: { repeat: Infinity, duration: 8 + idx, ease: "easeInOut" }
+                        y: { repeat: Infinity, duration: 5 + idx * 1.5, ease: "easeInOut" },
+                        x: { repeat: Infinity, duration: 7 + idx * 1.5, ease: "easeInOut" }
                     }}
                     style={{
                         position: "absolute",
@@ -58,9 +58,9 @@ export default function Hero() {
                         left: badge.left,
                         right: badge.right,
                         bottom: badge.bottom,
-                        boxShadow: `0 0 30px ${badge.glow}`
+                        boxShadow: `0 0 20px ${badge.glow}`
                     }}
-                    className={`hidden lg:flex w-14 h-14 rounded-2xl border backdrop-blur-xl items-center justify-center font-bold text-lg select-none pointer-events-none z-10 transition-all hover:scale-110 ${badge.color}`}
+                    className={`${badge.hideMobile ? "hidden md:flex" : "flex"} w-10 h-10 sm:w-14 sm:h-14 rounded-xl sm:rounded-2xl border backdrop-blur-xl items-center justify-center font-bold text-xs sm:text-lg select-none pointer-events-none z-10 transition-all hover:scale-110 ${badge.color}`}
                 >
                     {badge.name}
                 </m.div>
