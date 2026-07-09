@@ -81,14 +81,7 @@ export default function Footer() {
         <div className="border-t border-black/5 dark:border-white/5 mt-16 pt-8 text-center">
           <p className="text-neutral-500 text-sm flex items-center justify-center gap-1.5">
             Made with <Heart className="text-red-500 fill-red-500/20" size={14} /> by{" "}
-            <a
-              href="https://www.linkedin.com/in/mdmarufsarker/"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-neutral-600 dark:text-gray-400 hover:text-neutral-900 dark:hover:text-white transition-colors underline decoration-dotted underline-offset-4"
-            >
-              Md. Maruf Sarker
-            </a>{" "}
+            <span className="font-semibold text-neutral-700 dark:text-gray-300">Yogita Singh</span>{" "}
             © {currentYear}
           </p>
         </div>
