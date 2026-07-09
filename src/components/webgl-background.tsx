@@ -180,7 +180,7 @@ export default function WebGLBackground() {
   return (
     <canvas
       ref={canvasRef}
-      className="fixed inset-0 z-0 w-full h-full pointer-events-none"
+      className="fixed inset-0 z-0 w-full h-full pointer-events-none opacity-50"
     />
   );
 }
