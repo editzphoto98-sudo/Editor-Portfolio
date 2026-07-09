@@ -4,7 +4,7 @@ import { Inter, Nunito } from "next/font/google";
 
 import "./globals.css";
 import Navbar from "@/components/navbar";
-import MouseMoveEffect from "@/components/mouse-move-effect";
+import WebGLBackground from "@/components/webgl-background";
 import JumpToTop from "@/components/jump-to-top";
 import Footer from "@/components/footer";
 import SmoothScroll from "@/components/smooth-scroll";
@@ -141,7 +141,7 @@ export default function RootLayout({
           <div className="grid-background-large min-h-screen">
             <SmoothScroll>
               <FramerLazyMotion>
-                <MouseMoveEffect />
+                <WebGLBackground />
                 <Navbar />
                 <main className="">{children}</main>
                 <Footer />
