@@ -49,9 +49,9 @@ export default function WebGLBackground() {
         float gx = p.x;
         float bx = p.x * (1.0 - d);
 
-        float r = 0.012 / abs(p.y + sin((rx + time) * xScale) * yScale);
-        float g = 0.012 / abs(p.y + sin((gx + time) * xScale) * yScale);
-        float b = 0.012 / abs(p.y + sin((bx + time) * xScale) * yScale);
+        float r = 0.005 / abs(p.y + sin((rx + time) * xScale) * yScale);
+        float g = 0.005 / abs(p.y + sin((gx + time) * xScale) * yScale);
+        float b = 0.005 / abs(p.y + sin((bx + time) * xScale) * yScale);
         
         vec4 darkColor = vec4(r, g, b, 1.0);
         
