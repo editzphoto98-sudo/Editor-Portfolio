@@ -7,6 +7,9 @@ import { m, AnimatePresence  } from "framer-motion";
 import { Menu, X } from "lucide-react";
 import { Clapperboard } from "./ui/Clapperboard";
 import ThemeToggle from "./theme-toggle";
+import { Button } from "@/components/ui/button";
+import { createClient } from "@/utils/supabase/client";
+import { User } from "@supabase/supabase-js";
 
 const navItems = [
   { name: "Home", href: "/" },
@@ -18,6 +21,7 @@ const navItems = [
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const [user, setUser] = useState<User | null>(null);
   const pathname = usePathname();
 
   useEffect(() => {
@@ -25,7 +29,20 @@ export default function Navbar() {
       setScrolled(window.scrollY > 20);
     };
     window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
+
+    const supabase = createClient();
+    supabase.auth.getUser().then(({ data: { user } }) => {
+      setUser(user);
+    });
+
+    const { data: { subscription } } = supabase.auth.onAuthStateChange((_event, session) => {
+      setUser(session?.user ?? null);
+    });
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+      subscription.unsubscribe();
+    };
   }, []);
 
   return (
@@ -88,11 +105,30 @@ export default function Navbar() {
             </div>
             <div className="w-[1px] h-5 bg-neutral-200 dark:bg-white/10" />
             <ThemeToggle />
+            <div className="w-[1px] h-5 bg-neutral-200 dark:bg-white/10" />
+            <Link href={user ? "/profile" : "/login"}>
+              <Button
+                variant="outline"
+                size="sm"
+                className="rounded-full px-4 border-black/10 dark:border-white/10 hover:bg-black/5 dark:hover:bg-white/5 cursor-pointer text-xs font-semibold text-neutral-900 dark:text-white"
+              >
+                {user ? "Profile" : "Sign In"}
+              </Button>
+            </Link>
           </div>
 
           {/* Mobile menu button */}
           <div className="md:hidden flex items-center space-x-3">
             <ThemeToggle />
+            <Link href={user ? "/profile" : "/login"}>
+              <Button
+                variant="outline"
+                size="sm"
+                className="rounded-full px-3 py-1 h-8 text-[11px] border-black/10 dark:border-white/10 hover:bg-black/5 dark:hover:bg-white/5 cursor-pointer text-neutral-900 dark:text-white font-medium"
+              >
+                {user ? "Profile" : "Sign In"}
+              </Button>
+            </Link>
             <button
               onClick={() => setIsOpen(!isOpen)}
               className="text-neutral-600 dark:text-gray-300 hover:text-neutral-900 dark:hover:text-white p-2 rounded-lg hover:bg-black/5 dark:hover:bg-white/5 transition-colors"
@@ -132,6 +168,21 @@ export default function Navbar() {
                     </Link>
                   </m.div>
                 ))}
+                
+                {/* Mobile Auth Dashboard Link */}
+                <m.div
+                  initial={{ x: -20, opacity: 0 }}
+                  animate={{ x: 0, opacity: 1 }}
+                  transition={{ delay: navItems.length * 0.05 + 0.1 }}
+                >
+                  <Link
+                    href={user ? "/profile" : "/login"}
+                    onClick={() => setIsOpen(false)}
+                    className="block px-4 py-3 rounded-xl text-base font-semibold text-blue-600 dark:text-blue-400 hover:bg-black/[0.02] dark:hover:bg-white/5 border border-dashed border-blue-500/30 text-center mt-2"
+                  >
+                    {user ? "User Dashboard" : "Sign In / Sign Up"}
+                  </Link>
+                </m.div>
               </div>
             </m.div>
           )}
