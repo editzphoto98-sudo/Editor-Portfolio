@@ -1,6 +1,7 @@
 import { EmailTemplate } from "@/components/email-template";
 import { NextRequest, NextResponse } from "next/server";
 import { Resend } from "resend";
+import { createClient } from "@supabase/supabase-js";
 
 export async function POST(req: NextRequest) {
   let body;
@@ -72,10 +73,38 @@ export async function POST(req: NextRequest) {
     );
   }
 
+  // Save to Supabase Database
+  const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL;
+  const supabaseKey = process.env.NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY;
+  let dbSaved = false;
+
+  if (supabaseUrl && supabaseKey) {
+    try {
+      const supabase = createClient(supabaseUrl, supabaseKey);
+      const { error: dbError } = await supabase.from("contact_messages").insert({
+        name,
+        email,
+        message,
+        project_type: projectType,
+        timeline,
+      });
+      if (!dbError) {
+        dbSaved = true;
+      } else {
+        console.error("Database save error:", dbError);
+      }
+    } catch (dbErr) {
+      console.error("Database connection error:", dbErr);
+    }
+  }
+
   const apiKey = process.env.RESEND_API_KEY;
   if (!apiKey) {
+    if (dbSaved) {
+      return NextResponse.json({ success: true, savedToDb: true });
+    }
     return NextResponse.json(
-      { error: "Missing Resend API Key" },
+      { error: "Missing Resend API Key and database save failed" },
       { status: 500 }
     );
   }
@@ -90,12 +119,15 @@ export async function POST(req: NextRequest) {
       react: EmailTemplate({ name, email, message, projectType, timeline }),
     });
 
-    if (error) {
+    if (error && !dbSaved) {
       return NextResponse.json({ error }, { status: 500 });
     }
 
-    return NextResponse.json({ success: true, data });
+    return NextResponse.json({ success: true, data, savedToDb: dbSaved });
   } catch (error) {
+    if (dbSaved) {
+      return NextResponse.json({ success: true, savedToDb: true });
+    }
     const errorMessage = error instanceof Error ? error.message : "Failed to send email";
     return NextResponse.json(
       { error: errorMessage },
