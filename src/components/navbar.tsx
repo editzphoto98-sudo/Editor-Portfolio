@@ -120,15 +120,6 @@ export default function Navbar() {
           {/* Mobile menu button */}
           <div className="md:hidden flex items-center space-x-3">
             <ThemeToggle />
-            <Link href={user ? "/profile" : "/login"}>
-              <Button
-                variant="outline"
-                size="sm"
-                className="rounded-full px-3 py-1 h-8 text-[11px] border-black/10 dark:border-white/10 hover:bg-black/5 dark:hover:bg-white/5 cursor-pointer text-neutral-900 dark:text-white font-medium"
-              >
-                {user ? "Profile" : "Sign In"}
-              </Button>
-            </Link>
             <button
               onClick={() => setIsOpen(!isOpen)}
               className="text-neutral-600 dark:text-gray-300 hover:text-neutral-900 dark:hover:text-white p-2 rounded-lg hover:bg-black/5 dark:hover:bg-white/5 transition-colors"
