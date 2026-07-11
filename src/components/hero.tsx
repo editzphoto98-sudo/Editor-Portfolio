@@ -88,7 +88,7 @@ export default function Hero() {
                         initial={{ opacity: 0, y: 30, filter: "blur(10px)" }}
                         animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
                         transition={{ duration: 1, ease: [0.25, 1, 0.5, 1], delay: 0.1 }}
-                        className="block text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-[5rem] tracking-[0.25em] text-neutral-950 dark:text-white font-black uppercase mb-4 drop-shadow-[0_0_20px_rgba(0,0,0,0.05)] dark:drop-shadow-[0_0_20px_rgba(255,255,255,0.15)]"
+                        className="block text-[clamp(1.75rem,5.5vw,5rem)] tracking-[0.25em] text-neutral-950 dark:text-white font-black uppercase mb-4 drop-shadow-[0_0_20px_rgba(0,0,0,0.05)] dark:drop-shadow-[0_0_20px_rgba(255,255,255,0.15)]"
                     >
                         VISUAL
                     </m.span>
@@ -96,7 +96,7 @@ export default function Hero() {
                         initial={{ opacity: 0, y: 40, filter: "blur(10px)" }}
                         animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
                         transition={{ duration: 1, ease: [0.25, 1, 0.5, 1], delay: 0.2 }}
-                        className="block text-6xl sm:text-8xl md:text-[6.5rem] lg:text-[8rem] xl:text-[9.5rem] bg-gradient-to-r from-neutral-950 via-blue-900 to-blue-600 dark:from-white dark:via-blue-100 dark:to-blue-400 bg-clip-text text-transparent filter drop-shadow-[0_0_30px_rgba(59,130,246,0.12)] dark:drop-shadow-[0_0_30px_rgba(59,130,246,0.25)] tracking-tighter"
+                        className="block text-[clamp(2.5rem,10.5vw,9.5rem)] bg-gradient-to-r from-neutral-950 via-blue-900 to-blue-600 dark:from-white dark:via-blue-100 dark:to-blue-400 bg-clip-text text-transparent filter drop-shadow-[0_0_30px_rgba(59,130,246,0.12)] dark:drop-shadow-[0_0_30px_rgba(59,130,246,0.25)] tracking-tighter"
                     >
                         STORYTELLER
                     </m.span>
