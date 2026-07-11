@@ -1,6 +1,8 @@
 "use client";
 
-
+import { useState, useEffect } from "react";
+import { createClient } from "@/utils/supabase/client";
+import { User } from "@supabase/supabase-js";
 import {
   Linkedin,
   Mail,
@@ -11,6 +13,22 @@ import {
 
 export default function Footer() {
   const currentYear = new Date().getFullYear();
+  const [user, setUser] = useState<User | null>(null);
+
+  useEffect(() => {
+    const supabase = createClient();
+    supabase.auth.getUser().then(({ data: { user } }) => {
+      setUser(user);
+    });
+
+    const { data: { subscription } } = supabase.auth.onAuthStateChange((_event, session) => {
+      setUser(session?.user ?? null);
+    });
+
+    return () => {
+      subscription.unsubscribe();
+    };
+  }, []);
 
   const socialLinks = [
     {
@@ -25,7 +43,7 @@ export default function Footer() {
     },
     {
       name: "WhatsApp",
-      href: "https://wa.me/917067995677?text=Hi%20Yogita,%20I'd%20like%20to%20discuss%20a%20video%20project.",
+      href: user ? "https://wa.me/917067995677?text=Hi%20Yogita,%20I'd%20like%20to%20discuss%20a%20video%20project." : "/login",
       icon: MessageCircle,
     },
     {
@@ -59,12 +77,13 @@ export default function Footer() {
             <div className="flex space-x-5">
               {socialLinks.map((link) => {
                 const Icon = link.icon;
+                const isExternal = link.href.startsWith("http") || link.href.startsWith("mailto");
                 return (
                   <a
                     key={link.name}
                     href={link.href}
-                    target="_blank"
-                    rel="noopener noreferrer"
+                    target={isExternal ? "_blank" : undefined}
+                    rel={isExternal ? "noopener noreferrer" : undefined}
                     className="group"
                     aria-label={link.name}
                   >

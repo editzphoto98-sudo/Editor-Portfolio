@@ -1,14 +1,35 @@
 "use client";
 
+import { useState, useEffect } from "react";
 import { m } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import GlassmorphismCard from "@/components/glassmorphism-card";
 import { Mail, MapPin, Clock, Send, MessageCircle } from "lucide-react";
-import { toast } from "sonner"
+import { toast } from "sonner";
+import { createClient } from "@/utils/supabase/client";
+import Link from "next/link";
+import { User } from "@supabase/supabase-js";
 
 export default function ContactPage() {
+  const [user, setUser] = useState<User | null>(null);
+
+  useEffect(() => {
+    const supabase = createClient();
+    supabase.auth.getUser().then(({ data: { user } }) => {
+      setUser(user);
+    });
+
+    const { data: { subscription } } = supabase.auth.onAuthStateChange((_event, session) => {
+      setUser(session?.user ?? null);
+    });
+
+    return () => {
+      subscription.unsubscribe();
+    };
+  }, []);
+
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
@@ -110,14 +131,23 @@ export default function ContactPage() {
                   </div>
                   <div>
                     <p className="text-neutral-500 dark:text-gray-400 text-sm">WhatsApp</p>
-                    <a
-                      href="https://wa.me/917067995677"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="text-neutral-900 dark:text-white hover:text-green-600 dark:hover:text-green-400 transition-colors"
-                    >
-                      +91 7067995677
-                    </a>
+                    {user ? (
+                      <a
+                        href="https://wa.me/917067995677"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="text-neutral-900 dark:text-white hover:text-green-600 dark:hover:text-green-400 transition-colors font-medium"
+                      >
+                        +91 7067995677
+                      </a>
+                    ) : (
+                      <Link
+                        href="/login"
+                        className="text-blue-600 dark:text-blue-400 hover:underline text-xs font-semibold"
+                      >
+                        Sign in to view WhatsApp
+                      </Link>
+                    )}
                   </div>
                 </div>
 
@@ -308,15 +338,27 @@ export default function ContactPage() {
 
               <div className="mt-6 pt-6 border-t border-black/5 dark:border-gray-700">
                 <p className="text-neutral-500 dark:text-gray-400 text-sm text-center">
-                  Prefer to chat directly? Reach out on{" "}
-                  <a
-                    href="https://wa.me/917067995677"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="text-green-600 hover:text-green-500 dark:text-green-400 dark:hover:text-green-300 font-medium"
-                  >
-                    WhatsApp
-                  </a>{" "}
+                  Prefer to chat directly?{" "}
+                  {user ? (
+                    <>
+                      Reach out on{" "}
+                      <a
+                        href="https://wa.me/917067995677"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="text-green-600 hover:text-green-500 dark:text-green-400 dark:hover:text-green-300 font-medium"
+                      >
+                        WhatsApp
+                      </a>
+                    </>
+                  ) : (
+                    <Link
+                      href="/login"
+                      className="text-blue-600 dark:text-blue-400 hover:underline font-semibold"
+                    >
+                      Sign in to chat on WhatsApp
+                    </Link>
+                  )}{" "}
                   for instant communication.
                 </p>
               </div>
